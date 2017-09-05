@@ -37,13 +37,13 @@ We have no guarantees when or how many times it would be called. The producer ha
   const dataPoint1 = consumer.next(); // { value, done }
   const dataPoint2 = consumer.next(); // { value, done }
 </code></pre>
-</section><section><h2>Observables</h2><p>```javascript
-  const observable = Observable.from(event);
+</section><section><h2>Observables</h2><pre><code class="lang-javascript">  const observable = Observable.from(event);
   const subscription = observable.subscribe({
     next(value) { },
     error(error) { },
     done() { }
-  });</p>
+  });
+</code></pre>
 </section><section><h2>Composability</h2>
     </div>
   </div>

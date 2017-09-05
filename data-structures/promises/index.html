@@ -26,23 +26,45 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Promises</h1></section><section><h2>Using promises</h2><pre><code class="lang-javascript">  waitForAnswer().then(doSomethingWithIt);
+        </section><section><h1>Promises</h1></section><section><h2>Using promises</h2><p>Handle a value once it&#39;s available</p>
+<pre><code class="lang-javascript">  waitForAnswer().then(doSomethingWithIt);
 </code></pre>
+<p>Or handle the error if something goes wrong</p>
 <pre><code class="lang-javascript">  waitForAnswer().catch(handleError);
 </code></pre>
-<pre><code class="lang-javascript">  waitForAnswer()
-    .then(useAnswer)
-    .catch(handleError);
+</section><section><h3>Chaining</h3><p>Each <code>then function</code> returns a new promise</p>
+<pre><code class="lang-javascript">  getUserProfile()
+    .then(profile =&gt; download(profile.image))
+    .then(profileImage =&gt; applyEffects(profileImage))
+    .then(imageWithEffects =&gt; saveFile(imageWithEffects))
+    .then(() =&gt; console.log(&#39;done&#39;))
+    .catch(error =&gt; console.error(&#39;something went wrong&#39;));
 </code></pre>
-<pre><code class="lang-javascript">  waitForAnswer()
-    .catch(logErrorAndReturnDefault)
-    .then(useAnswerOrDefault)
-</code></pre>
+</section><section><h3>Fan-out</h3><p>Adding multiple handlers for the same promise</p>
 <pre><code class="lang-javascript">  const p1 = waitForAnswer();
   const p2 = p1.then(answer =&gt; console.log(answer));
   const p3 = p1.then(answer =&gt; answer * 2);
   p2.then(console.log);
   p3.then(console.log);
+</code></pre>
+</section><section><h3>Catch order</h3><p><code>handleError</code> will catch an exceptions coming
+from either <code>waitForAnswer</code> or <code>useAnswer</code></p>
+<pre><code class="lang-javascript">  waitForAnswer()
+    .then(useAnswer)
+    .catch(handleError);
+</code></pre>
+<p>In this case the <code>catch function</code> will provide
+a default value to the next <code>then function</code></p>
+<pre><code class="lang-javascript">  waitForAnswer()
+    .catch(logErrorAndDefault)
+    .then(useAnswerOrDefault)
+</code></pre>
+</section><section><h3>Execution order</h3><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;A&#39;), 0);
+  console.log(&#39;B&#39;);
+  Promise.resolve(&#39;C&#39;).then(c =&gt; console.log(c));
+  console.log(&#39;D&#39;);
+
+  // B D C A
 </code></pre>
 </section><section><h2>Creating promises</h2><pre><code class="lang-javascript">  const waitOneMinute = new Promise((resolve, reject) =&gt; {
     setTimeout(resolve, 60 * 1000);
@@ -50,17 +72,17 @@
 
   waitOneMinute.then(doStuff);
 </code></pre>
-<pre><code class="lang-javascript">  const ajax = ({ method = &#39;GET&#39;, url, data = null }) =&gt; new Promose((resolve, reject) =&gt; {
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () =&gt; {
+</section><section><h3>Ajax with a promise</h3><pre><code class="lang-javascript">  const ajax = ({ method = &#39;GET&#39;, url, data = null }) =&gt;
+    new Promose((resolve, reject) =&gt; {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = () =&gt; {
       if (xhr.state === 4) {
         if (xhr.error) { reject(xhr.error); }
         else { resolve(xhr.responseText); }
       }
     };
 
-    xhr.open(method, url);
-    xhr.send(data)
+    xhr.open(method, url); xhr.send(data);
   });
 
   ajax({ url: &#39;api.mysite.com&#39; })
@@ -75,8 +97,8 @@
     .catch(error =&gt; {
       console.log(error);
     });
-
-   Promise.all([
+</code></pre>
+</section><section><h2>Promise methods</h2><pre><code class="lang-javascript">   Promise.all([
      ajax(&#39;myScript.js&#39;),
      ajax(&#39;myStyles.css&#39;)
      ajax(&#39;myData.json&#39;),
@@ -90,6 +112,10 @@
    ]).then(data =&gt; {
      // gets the data from the first source to succeed
    });
+</code></pre>
+</section><section><h3>Promise.try proposal</h3><pre><code class="lang-javascript">  Promise.try(() =&gt; getAnswerMightThrow())
+  .then(useAnswer)
+  .catch(handleError);
 </code></pre>
 
     </div>

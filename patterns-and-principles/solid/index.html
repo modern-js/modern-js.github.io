@@ -1,0 +1,99 @@
+<html>
+
+<head>
+  <title>Modern JS : </title>
+  <style>
+    #main-header {
+      font-size: 2em;
+      color: white;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+    }
+
+    #back-link, #back-link:hover {
+      float:right;
+      font-size: 1em;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .reveal ul {
+      list-style: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <div class="reveal">
+    <div class="slides">
+        </section><section><h2>SOLID Principles</h2></section><section><h3>Single Responsibility</h3><p>A module should have only one source of change.</p>
+<p>Bad:</p>
+<pre><code class="lang-javascript">  function gameOver(gameState) {
+    if (gameState.player1.health === 0) {
+      return &#39;Congratulations player 1&#39;;
+    }
+    else {
+      return &#39;Congratulations player 2&#39;
+    }
+  }
+</code></pre>
+<p>Good:</p>
+<pre><code class="lang-javascript">  function gameOver(gameState) {
+    reportWinner(getWinner(gameState));
+  }
+</code></pre>
+</section><section><h3>Open/Close</h3><p>A module should be open for extension and closed for modification.</p>
+<pre><code>
+</code></pre></section><section><h3>Liskov substitution</h3><p>A module should be interchangeable with any module that implements the same interface.</p>
+<pre><code class="lang-javascript">const thermometer = (sensor) =&gt; ({
+   city: sensor.city,
+   averageTemp() {
+     const readings = sensor.readings();
+     return readings
+      .reduce((sum, r) =&gt; sum + r, 0) / readings.length;
+   }
+});
+
+const hottestCity = thermometers =&gt;
+  thermometers.reduce((hottest, thrm) =&gt;
+    thrm.averageTemp() &gt; hottest.averageTemp() ?
+      thrm : hottest,
+  thermometers[0]);
+
+hottestCity([
+  thermometer({ city: &#39;London&#39;, readings() { return [21, 23, 20]; }}),
+  thermometer({ city: &#39;Rome&#39;, readings() { return [28, 28, 27]; }}),
+  thermometer({ city: &#39;New York&#39;, readings() { return [75, 76, 77]; }})
+]);
+</code></pre>
+</section><section><h4>&nbsp;</h4><pre><code class="lang-javascript">  const humanWorker = {
+    work() { efficiency = 0.2; },
+    rest() { eat(); nap(); }
+  };
+
+  const robotWorker = {
+    work() { efficiency = 0.7; }
+    rest() { throw new Error(&quot;Robot&#39;s don&#39;t rest&quot;); }
+  };
+
+  const workShift = (worker) =&gt; {
+    while (hours &lt; 4) {
+      worker.work();
+    }
+    execute(worker.work, &#39;&#39;
+    worker.rest();
+
+    while (hours &lt; 4) {
+      worker.work();
+    }
+  }
+</code></pre>
+</section><section><h3>Interface segregation</h3><p>A module should use local data objects and not depend on objects from other sub-systems.</p>
+</section><section><h3>Dependency inversion</h3><p>The specific implementation should depend on the abstracted business logic</p>
+
+    </div>
+  </div>
+  <script src="/build/index.js"></script>
+</body>
+
+</html>
