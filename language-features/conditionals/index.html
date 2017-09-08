@@ -46,12 +46,17 @@
       doDefaultStuff();
   }
 </code></pre>
-</section><section><h2>pattern matching</h2><pre><code>  switch (expression) {
-    case [a, b, ...c]:
-    case { name, age }:
-    default:
+</section><section><h2>Pattern matching proposal</h2><pre><code class="lang-javascript">  match (expression) {
+    [a, b, ...c]: use(a, b, c)
+    { name, age }: use(name, age)
+    else: { throw new Error(); }
   }
 </code></pre>
+</section><section><h2>Links</h2><ul>
+<li><a href="https://dorey.github.io/JavaScript-Equality-Table/">Comparison table</a></li>
+<li><a href="https://github.com/tc39/proposal-pattern-matching">Pattern matching proposal</a></li>
+</ul>
+
     </div>
   </div>
   <script src="/build/index.js"></script>

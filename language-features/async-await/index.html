@@ -8,18 +8,42 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Async/Await</h1><pre><code class="lang-javascript">  async function poll() {
+        </section><section><h1>Async/Await</h1><pre><code class="lang-javascript">// async functions return a promise
+async function getData() {
+  const data = await fetch(&#39;url&#39;); // await any promise
+  if (!validate(data)) { throw new Error(&#39;bad data&#39;); }
+  return transform(data);
+}
+
+// use try/catch as normal
+async function render() {
+  try {
     const data = await getData();
-    if (!validate(data)) { throw new Error(&#39;bad data&#39;); }
-    return transform(data);
+    display(data);
+  catch (error) {
+    display(error);
+  }
+}
+</code></pre>
+</section><section><h2>The problem with loops</h2><p>Waits for each url to be downloaded
+before requesting the next one</p>
+<pre><code class="lang-javascript">async function getContent(urls) {
+  const results = [];
+
+  for (url of urls) {
+    const content = await fetch(url);
+    results.push(content);
   }
 
-  async function render() {
-    const data = await(poll());
-    setState(data);
-  }
-
-  const render = () =&gt; poll().then(setState);
+  return results;
+}
+</code></pre>
+</section><section><h2>Async concurrency</h2><p>The requests for all urls start at the same time</p>
+<pre><code class="lang-javascript">async function getContent(urls) {
+  return Promise.all(
+    urls.map(url =&gt; { return await fetch(url); })
+  );
+}
 </code></pre>
 
     </div>

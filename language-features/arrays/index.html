@@ -50,7 +50,7 @@
 </section><section><h3>slice</h3><p>Return a copy of a sub array,
 starting from the given index and having the given length</p>
 <pre><code class="lang-javascript">  const numbers = [1, 2, 3, 4, 5];
-  numbers.slice(1,2); // returns [2];
+  numbers.slice(0,2); // returns [1, 2];
 </code></pre>
 </section><section><h3>splice</h3><p>Modifies the given array:
 adding, removing or replacing elements</p>
@@ -60,7 +60,7 @@ adding, removing or replacing elements</p>
   // numbers = [1, 2, 3];
 </code></pre>
 </section><section><h3>forEach</h3><p>Execute the given function on each element of the array.</p>
-<pre><code class="lang-javascript">  array.forEach((el) =&gt; doSomethingWith(el));
+<pre><code class="lang-javascript">  array.forEach((el) =&gt; console.log(el));
 </code></pre>
 </section><section><h3>some</h3><p>Returns true if any of the elements satisfy the condition function</p>
 <pre><code class="lang-javascript">[1, 2, 3, 4, 5].some(number =&gt; number % 2); // returns true
@@ -75,12 +75,13 @@ If the function returns true, the value is added to the new results array.</p>
 </section><section><h3>map</h3><p>Returns an array of the result of applying
 the given function to each element of the array.</p>
 <pre><code class="lang-javascript">  const doubled = [1, 2, 3, 4, 5].map(number =&gt; number * 2);
+  // returns [2, 4, 6, 8, 10]
 </code></pre>
 </section><section><h3>reduce</h3><p>Accumulate a result by applying the given function to each element.</p>
 <pre><code class="lang-javascript">  const summed = [1, 2, 3, 4, 5]
-    .reduce((result, number) =&gt; result + number, 0);
+    .reduce((result, number) =&gt; result + number, 0); // 15
 </code></pre>
-
+</section><section><h2>Typed arrays</h2>
     </div>
   </div>
   <script src="/build/index.js"></script>

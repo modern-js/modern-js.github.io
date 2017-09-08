@@ -8,7 +8,50 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Programming styles</h1></section><section><h2>Imperative</h2></section><section><h2>Declarative</h2></section><section><h2>Object Oriented</h2></section><section><h2>Functional</h2>
+        </section><section><h1>Programming styles</h1></section><section><h2>Imperative</h2><pre><code class="lang-javascript">function sumItemsCost(items) {
+  var sum = 0
+  for (var i = 0; i &lt; items.length; i += 1) {
+    sum += items[i].cost;
+  }
+  return sum;
+}
+
+sumItemsCost([ { cost: 5 }, { cost: 4 }]); // 9
+</code></pre>
+</section><section><h2>Functional</h2><pre><code class="lang-javascript">const sumItemsCost = items =&gt; items.reduce(
+  (total, item) =&gt; total + item.cost,
+  0
+);
+
+sumItemsCost([ { cost: 5 }, { cost: 4 }]); // 9
+</code></pre>
+</section><section><h2>Object Oriented</h2><pre><code class="lang-javascript">class Items {
+  constructor(...items) { this.items = items; }
+
+  sumCost() { return this.items.reduce(
+    (total, item) =&gt; total + item.cost,
+    0);
+  }
+}
+
+const items = new Items({ cost: 5 }, { cost: 4 })
+items.sumCost(); // 9
+</code></pre>
+</section><section><h2>Declarative</h2><pre><code class="lang-javascript">// props.items: [{ cost: 5 }, { cost: 4 }]
+const ListSum = (props) =&gt;
+(&lt;div&gt;
+  &lt;List items={props.items} /&gt;
+  &lt;Form&gt;
+    &lt;Input name=&quot;newItem&quot; /&gt;
+    &lt;Submit onClick={props.addItem} /&gt;
+  &lt;/Form&gt;
+  &lt;Label&gt;
+    Sum: {props.items
+      .reduce((total, item) =&gt; total + item.cost,0)}
+  &lt;/Label&gt;
+&lt;/div&gt;);
+</code></pre>
+
     </div>
   </div>
   <script src="/build/index.js"></script>
