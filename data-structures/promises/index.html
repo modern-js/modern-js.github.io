@@ -63,13 +63,8 @@ a default value to the next <code>then function</code></p>
         else { resolve(xhr.responseText); }
       }
     };
-
     xhr.open(method, url); xhr.send(data);
   });
-
-  ajax({ url: &#39;api.mysite.com&#39; })
-    .catch(handleError)
-    .then(useData);
 </code></pre>
 </section><section><h2>Promise methods</h2><pre><code class="lang-javascript">  Promose.resolve(21)
     .then(number =&gt; number * 2)

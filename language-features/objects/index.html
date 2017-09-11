@@ -8,8 +8,7 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Objects</h1><p>In JavaScript an object is just a bag of properties.</p>
-</section><section><h2>Creating Objects</h2><ul>
+        </section><section><h1>Objects</h1></section><section><h2>Creating Objects</h2><ul>
 <li><code>{} /* object literal */</code></li>
 <li><code>new Constructor()</code></li>
 <li><code>Object.create(prototype)</code></li>
@@ -25,11 +24,11 @@ as a property of the <code>person</code> object.</p>
     age: 30,
   };
 </code></pre>
-</section><section><h3>The new operator</h3><p>To create objects using <code>new</code> we need a <code>constructor</code> function
-which sets the properties of the new object.</p>
+</section><section><h3>The new operator</h3><p>The <code>constructor</code> function sets the properties of the new object.</p>
 <p>The prototype of the new object is set
-to the constructor function&#39;s prototype property.</p>
-<pre><code class="lang-javascript">  function Rect(a,b) {
+to the value of the constructor function&#39;s prototype property.</p>
+<pre><code class="lang-javascript">  //constructor function
+  function Rect(a,b) {
     this.a = a;
     this.b = b;
   }
@@ -136,13 +135,15 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
   pointA.z = 0; // throws or fails silently
   delete pointA.y; // success, but now it&#39;s a 1d point...
 </code></pre>
-</section><section><h3>Object.seal()</h3><p>Disallow removing properties.</p>
+</section><section><h3>Object.seal()</h3><p>Disallow adding or removing properties.</p>
 <pre><code class="lang-javascript">  const pointB = Object.seal({ x: 0, y: 0 });
   pointB.x = 15; // no problem
   pointB.z = 0; // throws or fails silently
   delete pointB.y; // throws or fails silently
 </code></pre>
-</section><section><h3>Object.freeze()</h3><p>Make an object immutable.</p>
+</section><section><h3>Object.freeze()</h3><p>Make an object immutable.
+Disallow adding / removing properties,
+or changing their values.</p>
 <pre><code class="lang-javascript">  const pointC = Object.freeze({ x: 0, y: 0 });
   pointC.x = 15; // throws or fails silently
   pointC.z = 0; // throws or fails silently

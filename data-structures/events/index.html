@@ -25,6 +25,22 @@
 
   button.dispatchEvent(aClick);
 </code></pre>
+</section><section><h3>Event propagation / delegation</h3><p>Event bubbling means that event targeted at child nodes
+will execute the event handlers of the chain of parent nodes.</p>
+<pre><code class="lang-html">  &lt;h1&gt;Select your favorite color:&lt;/h1&gt;
+  &lt;ul id=&quot;colors&quot;&gt;
+    &lt;li&gt;Green&lt;/li&gt;
+    &lt;li&gt;Blue&lt;/li&gt;
+    &lt;li&gt;Red&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;script&gt;
+    document.getElementById(&#39;colors&#39;)
+      .addEventListener(
+        &#39;click&#39;,
+        (event) =&gt; console.log(event.target.innerText)
+      );
+&lt;/script&gt;
+</code></pre>
 </section><section><h2>Custom Events in Browser</h2><pre><code class="lang-javascript">  // Listening for events on a DOM element (e.g. document)
   document.addEventListener(
     &#39;myCustomEvent&#39;,
