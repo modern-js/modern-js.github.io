@@ -6084,7 +6084,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "#main-header {\r\n  font-size: 2em;\r\n  color: white;\r\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\r\n}\r\n\r\n#back-link, #back-link:hover {\r\n  float:right;\r\n  font-size: 1em;\r\n  color: inherit;\r\n  text-decoration: none;\r\n}\r\n\r\n.reveal ul {\r\n  list-style: none !important;\r\n}\r\n", ""]);
+exports.push([module.i, "#main-header {\r\n  font-size: 2em;\r\n  color: white;\r\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\r\n}\r\n\r\n#back-link, #back-link:hover {\r\n  float:right;\r\n  font-size: 1em;\r\n  color: inherit;\r\n  text-decoration: none;\r\n}\r\n\r\n.reveal ul {\r\n  list-style: none !important;\r\n}\r\n\r\n.reveal code {\r\n  max-height: 100% !important;\r\n}\r\n", ""]);
 
 // exports
 

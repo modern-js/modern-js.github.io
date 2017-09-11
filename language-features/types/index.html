@@ -53,34 +53,14 @@ from their respective prototypes.</p>
   ({ x: 1 }.x) // 1
   [1, 2, 3].length // 2
 </code></pre>
-</section><section><h3>Question</h3><p>Is this code valid?
-What would the output be?</p>
-<pre><code class="lang-javascript">  16[&quot;toString&quot;](16)
-</code></pre>
-</section><section><h2>Parameters and Values</h2><p>Parameters are passed by value.
-The receiving function cannot change
-the bindings of the calling context.</p>
-<pre><code class="lang-javascript">  function swap(x, y) {
-    var z = x;
-    x = y; y = z;
-  }
-
-  var x = 5; var y = 6;
-
-  swap(x, y);
-
-  x // 5
-  y // 6
-</code></pre>
-</section><section><h2>References</h2><p>Primitive values are immutable and have a single instance for each value.</p>
+</section><section><h2>References</h2><p>Primitive values are immutable and only create a single instance per value.</p>
 <pre><code class="lang-javascript">  var x = 5; var y = 5;
   x === y // true
 
   var s = &quot;ab&quot;; var z = &quot;ab&quot;;
   s === z // true
 </code></pre>
-<p>Each array / object is a separate instance</p>
-<pre><code class="lang-javascript">  var x = new Number(2);
+</section><section><h3>Each object is a separate instance</h3><pre><code class="lang-javascript">  var x = new Number(2);
   var y = new Number(2);
   x === y // false
 

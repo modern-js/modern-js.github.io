@@ -1,40 +1,82 @@
 <html>
 
 <head>
-  <title>Modern JS : Language structure</title>
+  <title>Modern JS : Structure and Grammar</title>
 </head>
 
 <body>
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Language Structure</h1></section><section><h2>Statements</h2><pre><code class="lang-javascript">  // function statement
-  function f() {}
+        </section><section><h1>Language Structure</h1></section><section><h2>Statements</h2><p>Statements do not resolve to a value.</p>
+<pre><code class="lang-javascript">  {} // code block statement
 
-  //declarations
-  import;
-  export;
+  function f() { return } / class c {}
+
+  import / export
+
   var / let / const
 
-  //loop statements
-  for () { continue; }
-  while () { break; }
+  for () { continue } / while () { break }
 
-  // conditional statements
-  if () {} else {}
-  switch () { case }
+  if () {} else {} / switch () { case }
 
   try { throw; } catch() {}
 
-  delete;
-
-  return;
-
-  debugger;
+  debugger
 </code></pre>
-</section><section><h2>Expressions</h2><pre><code class="lang-javascript">
+</section><section><h2>Expressions</h2><p>Everything that is not a statement, is an expression.
+Expressions resolve to a value</p>
+<pre><code class="lang-javascript">  5 // a literal number expression;
+  &quot;use strict&quot; // a literal string expression (pragma)
+  {} // an object literal expression (SEE NEXT SLIDE)
+
+  a + b // addition expression
+
+  a = 5 // assignment expression
 </code></pre>
-</section><section><h2>Blocks</h2>
+</section><section><h2>Statement position</h2><p>A new statement usually begins
+at the start of a line (except for special cases)
+or after a semi-colon <code>;</code></p>
+<pre><code class="lang-javascript">  5 // a number literal expression in statement position
+
+  { 1, 2, 3 } // code block containing 3 statements
+  { x: 1; y: 2 } // code block with labelled statements
+
+  // trying to create an object literal expression
+  { x: 1, y: 2 } // this will throw an error!!
+
+  // the variable declaration statement is hoisted
+  // assignment expression of an object literal to a variable
+  var point = { x:1 , y: 2 };
+
+  // assignment of a code block to a variable
+  var p2 = { x: 1; y: 2 } // this will throw an error
+</code></pre>
+</section><section><h2>Expression position</h2><p>You cannot use a statement if an expression is expected</p>
+<pre><code class="lang-javascript">  //&quot;if&quot; is a statement
+  //the following code will throw an error:
+  console.log(if (condition) { 5 } else { 12 });
+  var z = 42 + if (condition) { 12 };
+
+  //the ternary operator is an expression form of &quot;if&quot;
+  console.log(condition ? 5 : 12);
+  var z = 42 + condition ? 12 : 0;
+</code></pre>
+</section><section><h2>Built-in objects</h2><ul>
+<li><a href="../conditionals/">Boolean</a></li>
+<li><a href="../numbers-and-math/">Number</a></li>
+<li><a href="../strings/">String</a></li>
+<li><a href="../objects/">Object</a></li>
+<li><a href="../arrays/">Array</a></li>
+<li><a href="../functions/">Function</a></li>
+<li>(and more)</li>
+</ul>
+</section><section><h2>Host environments</h2><p>Host environments also inject global objects.
+e.g. <code>require</code> in node.js and <code>window</code> in the browser</p>
+<p><a href="../../host-environments/">Host environments</a></p>
+</section><section><h2>Links</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></p>
+
     </div>
   </div>
   <script src="/build/index.js"></script>

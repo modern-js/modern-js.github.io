@@ -8,7 +8,38 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Prototypes</h1></section><section><h2>Objects without classes</h2></section><section><h2>The hidden link</h2></section><section><h2>It&#39;s all dynamic</h2>
+        </section><section><h1>Prototypes</h1><p>JavaScript implements a prototype-based inheritance model.
+Each object has a special prototype field that points directly
+to another object (NOT a class).</p>
+</section><section><h2>The hidden link</h2><p>An object literal has its prototype set to <code>Object.prototype</code></p>
+<pre><code class="lang-javascript">  Object.getPrototypeOf({ a: 1 }) === Object.prototype // true
+  Object.getPrototypeOf([ 1, 2 ]) === Object.prototype // false
+  Object.getPrototypeOf([ 1, 2 ]) === Array.prototype // true
+  Object.getPrototypeOf(Array.prototype) === Object.prototype
+  // true
+</code></pre>
+<p><code>Object.getPrototypeOf</code> should not be used in applications</p>
+</section><section><h2>Prototype chain</h2><p>If a property is missing when looking for properties
+(using the <code>.</code> or <code>[]</code> syntax), the engine will
+search for it down the prototype chain.</p>
+</section><section><h2>Objects without classes</h2></section><section><h2>Runtime dynamic prototypes</h2><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
+<pre><code class="lang-javascript">  const protoPerson = {
+    sayHi() { return `Hi, I&#39;m ${this.name}`}
+  };
+
+  // use can pass an object of property descriptors
+  // similarly to Object.defineProperties
+  const misho = Object.create(
+    protoPerson, { name: { value: &#39;Misho&#39; } }
+  );
+  misho.sayHi(); // &quot;Hi, I&#39;m Misho&quot;
+
+  protoPerson.sayHi = function () {
+    return &#39;I forgot my name&#39;;
+  };
+  misho.sayHi(); // &quot;I forgot my name&quot;
+</code></pre>
+
     </div>
   </div>
   <script src="/build/index.js"></script>

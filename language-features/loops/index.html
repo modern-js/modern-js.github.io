@@ -17,6 +17,20 @@
     doStuff();
   }
 </code></pre>
+</section><section><h2>Variable binding</h2><p><code>var</code> is bound once</p>
+<pre><code class="lang-javascript">  for (var i = 0; i &lt; 5; i += 1) {
+    setTimeout(() =&gt; console.log(i), 1000);
+  }
+
+  //logs: 5 5 5 5 5
+</code></pre>
+<p><code>let</code> is rebound on each iteration of the loop</p>
+<pre><code class="lang-javascript">  for (let i = 0; i &lt; 5; i += 1) {
+    setTimeout(() =&gt; console.log(i), 1000);
+  }
+
+  //logs: 1 2 3 4 5
+</code></pre>
 </section><section><h2>Enumeration</h2><pre><code class="lang-javascript">  const array = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
   for (const index in array) {
     console.log(index); // 0, 1, 2

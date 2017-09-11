@@ -8,7 +8,52 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Variables</h1></section><section><h2>Declarations</h2></section><section><h3>Hoisting</h3></section><section><h2>Bindings</h2><pre><code class="lang-javascript">  var x = 5;
+        </section><section><h1>Variables</h1></section><section><h2>Declaration</h2><pre><code class="lang-javascript">  aGlobalVar = &#39;global&#39;;
+
+  var funcVar = &#39;function&#39;;
+
+  let blockVar = &#39;block&#39;;
+
+  const blockImmutable = &#39;block immutable&#39;;
+</code></pre>
+</section><section><h2>Temporal Dead Zone (TDZ)</h2><pre><code class="lang-javascript">  console.log(a); // undefined
+
+  var a = 5;
+</code></pre>
+<p>Use cannot use <code>let</code> and <code>const</code> variable
+before where they are declared in the code.</p>
+<pre><code class="lang-javascript">  console.log(a); // throws an TDZ error
+
+  let a = 5;
+</code></pre>
+</section><section><h2>Scope</h2><p>See <a href="../scopes/">Scope</a></p>
+</section><section><h3>Hoisting</h3><p><code>var</code> declarations are hoisted to the top of the scope.
+The assignment remains at the same point in the code.</p>
+<pre><code class="lang-javascript">  function sayHi() {
+    console.log(hello);
+    var hello = &#39;hi&#39;;
+  }
+
+  sayHi() // undefined;
+
+  // the above code is equivalent to:
+  function sayHi() {
+    var hello = undefined;
+    console.log(hello);
+    hello = &#39;hi&#39;;
+  }
+</code></pre>
+</section><section><h2>Destructing</h2><pre><code class="lang-javascript">  const [x, y] = [1, 2];
+  // x = 1, y = 2
+
+  let { height } = { height: 1.83 };
+  // height = 1.83
+
+  const { dog: { name: dogName } } = { dog: { name: &#39;Barsa&#39; } };
+  // dogName = &#39;Barsa&#39;
+</code></pre>
+</section><section><h2>Bindings and references</h2><p>Variables cannot reference other variables, only values.</p>
+<pre><code class="lang-javascript">  var x = 5;
   var y = x;
   x += 1;
   console.log(y); // 5
@@ -18,7 +63,22 @@
   z += &quot; world&quot;;
   console.log(s); // &quot;hello&quot;
 </code></pre>
-</section><section><h2>Scope</h2></section><section><h2>Destructing</h2>
+</section><section><h2>Parameters and Values</h2><p>Parameters are passed by value.
+The receiving function cannot change
+the bindings of the calling context.</p>
+<pre><code class="lang-javascript">  function swap(x, y) {
+    var z = x;
+    x = y; y = z;
+  }
+
+  var x = 5; var y = 6;
+
+  swap(x, y);
+
+  x // 5
+  y // 6
+</code></pre>
+
     </div>
   </div>
   <script src="/build/index.js"></script>

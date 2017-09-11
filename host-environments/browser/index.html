@@ -28,13 +28,22 @@
 <pre><code class="lang-javascript">  /* !!! THIS IS BAD CODE!!! */
   document.write(&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;);
 </code></pre>
+<p><em>Better</em></p>
 <pre><code class="lang-javascript">  document.body.innerHTML = &quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;
 </code></pre>
-<p>```javascript
-  var title = document.createElement(&quot;h1&quot;);
+<p><em>Even better</em></p>
+<pre><code class="lang-javascript">  var title = document.createElement(&quot;h1&quot;);
   title.textContent = &quot;Content&quot;;
-  document.body.appendChild(title);</p>
-</section><section><h3>Local Storage</h3></section><section><h3>User Media</h3></section><section><h3>Service Workers</h3>
+  document.body.appendChild(title);
+</code></pre>
+</section><section><h3>Local Storage</h3><p><code>localStorage</code> is a key-value database inside the browser</p>
+<pre><code class="lang-javascript">  localStorage.getItem(&#39;username&#39;); // null
+  localStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
+
+  sessionStorage.getItem(&#39;username&#39;);
+  sessionStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
+</code></pre>
+</section><section><h3>User Media</h3></section><section><h3>Service Workers</h3>
     </div>
   </div>
   <script src="/build/index.js"></script>

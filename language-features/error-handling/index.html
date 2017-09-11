@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>Modern JS : Error handling</title>
+</head>
+
+<body>
+  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <div class="reveal">
+    <div class="slides">
+        </section><section><h1>Error handling</h1></section><section><h2>try/catch</h2><pre><code class="lang-javascript">  try {
+    null.doSomething();
+  } catch (error) {
+    console.log(&#39;null can\&#39;t do shit&#39;);
+  }
+</code></pre>
+</section><section><h2>throw</h2><pre><code class="lang-javascript">  function sum(a, b) {
+    if (!a || !b) {
+      throw new Error(&#39;expected 2 arguments&#39;);
+    }
+  }
+
+  sum(1); // throws an error
+</code></pre>
+
+    </div>
+  </div>
+  <script src="/build/index.js"></script>
+</body>
+
+</html>

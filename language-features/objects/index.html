@@ -25,8 +25,10 @@ as a property of the <code>person</code> object.</p>
     age: 30,
   };
 </code></pre>
-</section><section><h3>The new operator</h3><p>In order to creating objects using <code>new</code> we need a <code>constructor</code> function
-which sets the properties of the new object. The prototype of the new object is set to the constructor function&#39;s prototype property.</p>
+</section><section><h3>The new operator</h3><p>To create objects using <code>new</code> we need a <code>constructor</code> function
+which sets the properties of the new object.</p>
+<p>The prototype of the new object is set
+to the constructor function&#39;s prototype property.</p>
 <pre><code class="lang-javascript">  function Rect(a,b) {
     this.a = a;
     this.b = b;
@@ -41,11 +43,11 @@ which sets the properties of the new object. The prototype of the new object is 
 
   rect1.constructor; // the Rect function
 </code></pre>
-</section><section><h3>Object.create</h3><p>You can create objects with a specific prototype.
-If a property is missing when looking for properties
-using the <code>.</code> or <code>[]</code> syntax, the engine will
-search for it down the prototype chain.</p>
-<pre><code class="lang-javascript">  const rect1 = Object.create({ getArea() { return this.a * this.b; }});
+</section><section><h3>Object.create</h3><p>Creates objects with the specified prototype.</p>
+<pre><code class="lang-javascript">  const rect1 = Object.create({
+    getArea() { return this.a * this.b; }
+  });
+
   rect1.a = 5;
   rect1.b = 6;
   rect1.getArea(); // 30
@@ -75,7 +77,9 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
 <li>enumerable: property is not listed</li>
 <li>writable: the property&#39;s value cannot be changed</li>
 </ul>
-<pre><code class="lang-javascript">  Object.getOwnPropertyDescriptors({ id: &#39;1&#39;, data: &#39;nom nom&#39;});
+<pre><code class="lang-javascript">  Object.getOwnPropertyDescriptors(
+    { id: &#39;1&#39;, data: &#39;nom nom&#39;}
+  );
   // returns:
   {
     id: {
@@ -87,18 +91,24 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
   }
 </code></pre>
 </section><section><h3>Defining properties</h3><p>You can set these special flags when defining properties.</p>
-<pre><code class="lang-javascript">  Object.defineProperty(myObject, &#39;newKey&#39;, { writable: false, value: 42 });
-  Object.defineProperties(myObject, {
-    &#39;newKey_1&#39;: { enumerable: false, value: &#39;kind of hidden&#39; },
-    &#39;newKey_2&#39;: { configurable: false, value: &#39;can\&#39;t delete this&#39;}
+<pre><code class="lang-javascript">  Object.defineProperty(
+    myObject, &#39;newKey&#39;, { writable: false, value: 42 }
+  );
+
+  Object.defineProperties(
+    myObject,
+    {
+      &#39;newKey_1&#39;: { enumerable: false, value: &#39;unlisted&#39; },
+      &#39;newKey_2&#39;: { configurable: false, value: &#39;here to stay&#39;}
   });
 </code></pre>
 </section><section><h3>Getters and Setters</h3><p>Properties that execute a <code>get</code> function when the property is accessed and a <code>set</code> function when it is assigned a value.</p>
 <p><em>Anti-Pattern</em> This should be used carefully. It creates side effects that are hard to detect and reason about.</p>
-<pre><code class="lang-javascript">  const thermometer = Object.defineProperty({ c: 22 }, &#39;f&#39;, {
-    get() { return this.c * 1.8 + 32; },
-    set(v) { this.c = (v - 32) / 1.8 }
-  });
+<pre><code class="lang-javascript">  const thermometer = Object.defineProperty(
+    { c: 22 }, &#39;f&#39;, {
+      get() { return this.c * 1.8 + 32; },
+      set(v) { this.c = (v - 32) / 1.8 }
+    });
 
   thermometer.f // 71.6
   thermometer.f = 100
@@ -152,30 +162,7 @@ or has disabled extensions.</p>
   Object.isFrozen(pointB) // false
   Object.isFrozen(pointC) // true
 </code></pre>
-</section><section><h2>Prototypical inheritance</h2><p>JavaScript implements a prototype-based inheritance model.
-Each object has a special prototype field that points directly
-to another object (NOT a class).</p>
-<p>An object literal has the <code>Object.prototype</code> set as its prototype</p>
-<pre><code class="lang-javascript">  Object.getPrototypeOf({ a: 1 }) === Object.prototype // true
-  Object.getPrototypeOf([ 1, 2 ]) === Object.prototype // false
-  Object.getPrototypeOf([ 1, 2 ]) === Array.prototype // true
-  Object.getPrototypeOf(Array.prototype) === Object.prototype // true
-</code></pre>
-</section><section><h2>Dynamic prototypes</h2><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
-<pre><code class="lang-javascript">  const protoPerson = {
-    sayHi() { return `Hi, I&#39;m ${this.name}`}
-  };
-
-  // use can pass an object of property descriptors
-  // similarly to Object.defineProperties
-  const misho = Object.create(protoPerson, { name: { value: &#39;Misho&#39; }});
-  misho.sayHi(); // &quot;Hi, I&#39;m Misho&quot;
-
-  protoPerson.sayHi = function () {
-    return &#39;I forgot my name&#39;;
-  };
-  misho.sayHi(); // &quot;I forgot my name&quot;
-</code></pre>
+</section><section><h2>Prototypical inheritance</h2><p>See <a href="../prototypes/">Prototypes</a></p>
 </section><section><h2>Patterns</h2></section><section><h3>Factory function</h3><pre><code class="lang-javascript">  function createTaxi(driver) {
     // use any object creation technique
     const taxi = createCar();
@@ -193,7 +180,9 @@ to another object (NOT a class).</p>
     bg: &#39;Здравейте&#39;
   };
 
-  const sayHi = (lang) =&gt; translations[lang] || translations[&#39;en&#39;];
+  const sayHi = (lang) =&gt; (
+    translations[lang] || translations[&#39;en&#39;]
+  );
 </code></pre>
 
     </div>

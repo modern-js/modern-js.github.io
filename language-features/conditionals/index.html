@@ -8,7 +8,8 @@
   <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Conditionals</h1></section><section><h2>comparators</h2><pre><code class="lang-javascript">  a == b;
+        </section><section><h1>Conditionals</h1></section><section><h2>comparators</h2><p><em>Style guide: use strict comparisons</em></p>
+<pre><code class="lang-javascript">  a == b;
   a === b;
 
   a != b;
@@ -19,12 +20,31 @@
 
   a &lt; b;
   a &lt;= b;
+
+  // there are no strict versions of &gt; and &lt;
 </code></pre>
-</section><section><h2>logical operators</h2><pre><code class="lang-javascript">  a &amp;&amp; b;
-  a || b;
+</section><section><h2>logical operators</h2><pre><code class="lang-javascript">  a &amp;&amp; b; // logical AND; short circuit, returns value (not Boolean)
+  a || b; // logical OR; short circuit, returns value (not Boolean)
+
+  // use AND to guard against null / undefined
+  doSomething(myObject &amp;&amp; myObject.myProperty);
+  myObject &amp;&amp; myObject.doSomething &amp;&amp; myObject.doSomething();
+
+  // use OR to set a default value
+  sumNumbers(numbers || []);
+  (myObject || defaultObject).doSomething();
 </code></pre>
+</section><section><h2>False-y values</h2><ul>
+<li><code>false</code></li>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>0</code></li>
+<li><code>NaN</code></li>
+<li><code>&quot;&quot;</code> empty string</li>
+</ul>
 </section><section><h2>if</h2><pre><code class="lang-javascript">  if (condition) {
 
+  // the following &quot;else&quot; forms are equivalent
   } else {
     if (check) {
 
@@ -41,14 +61,15 @@
       break;
     case value2:
       doOtherStuff();
+      evenMoreStuff();
       break;
     default:
       doDefaultStuff();
   }
 </code></pre>
 </section><section><h2>Pattern matching proposal</h2><pre><code class="lang-javascript">  match (expression) {
-    [a, b, ...c]: use(a, b, c)
-    { name, age }: use(name, age)
+    [a, b, ...c]: useArray(a, b, c)
+    { name, age }: useObject(name, age)
     else: { throw new Error(); }
   }
 </code></pre>
