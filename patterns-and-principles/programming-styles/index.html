@@ -33,9 +33,14 @@ sumItemsCost([ { cost: 5 }, { cost: 4 }]); // 9
 </section><section><h2>Object Oriented</h2><pre><code class="lang-javascript">class Items {
   constructor(...items) { this.items = items; }
 
-  sumCost() { return this.items.reduce(
-    (total, item) =&gt; total + item.cost,
-    0);
+  addToTotal(item) {
+    this.total += item.cost;
+  }
+
+  sumCost() {
+    this.total = 0;
+    this.items.forEach(item =&gt; this.addToTotal(item));
+    return this.total;
   }
 }
 
