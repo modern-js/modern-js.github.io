@@ -5,19 +5,24 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Language Features</a>
+      > Variables
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
-        </section><section><h1>Variables</h1></section><section><h2>Declaration</h2><pre><code class="lang-javascript">  aGlobalVar = &#39;global&#39;;
+        </section><section><h1>Variables</h1></section><section><h2>Declaration</h2><pre><code class="lang-javascript">  aGlobalVar = &#39;a global variable&#39;;
 
-  var funcVar = &#39;function&#39;;
+  var funcVar = &#39;a function variable&#39;;
 
-  let blockVar = &#39;block&#39;;
+  let blockVar = &#39;a block variable&#39;;
 
-  const blockImmutable = &#39;block immutable&#39;;
+  const blockImmutable = &#39;an immutable block variable&#39;;
 </code></pre>
-</section><section><h2>Scope</h2><p>See <a href="../scopes/">Scopes</a></p>
-</section><section><h2>Destructing</h2><pre><code class="lang-javascript">  const [x, y] = [1, 2];
+<p>See <a href="../scopes/" >Scopes</a></p>
+</section><section><h2>Destructuring</h2><pre><code class="lang-javascript">  const [x, y] = [1, 2];
   // x = 1, y = 2
 
   let { height } = { height: 1.83 };
@@ -68,18 +73,25 @@ the bindings of the calling context.</p>
     var z = x;
     x = y; y = z;
   }
-
-  var x = 5; var y = 6;
-
-  swap(x, y);
-
-  x // 5
-  y // 6
+  var x = 5; var y = 10;
+  swap(x, y); // does nothing
+  console.log(x, y); // 5, 10
+</code></pre>
+<pre><code class="lang-javascript">  function swapInObject(obj) {
+    var z = obj.x;
+    obj.x = obj.y; obj.y = z;
+  }
+  var myObj = { x: 5, y: 10 };
+  swapInObject(myObj);
+  console.log(myObj); // { x: 10, y: 5 }
 </code></pre>
 
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("Variables");
+  </script>
 </body>
 
 </html>

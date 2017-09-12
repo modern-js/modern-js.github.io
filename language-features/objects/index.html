@@ -5,7 +5,12 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Language Features</a>
+      > Objects
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
         </section><section><h1>Objects</h1></section><section><h2>Creating Objects</h2><ul>
@@ -163,15 +168,17 @@ or has disabled extensions.</p>
   Object.isFrozen(pointB) // false
   Object.isFrozen(pointC) // true
 </code></pre>
-</section><section><h2>Prototypical inheritance</h2><p>See <a href="../prototypes/">Prototypes</a></p>
-</section><section><h2>Patterns</h2></section><section><h3>Factory function</h3><pre><code class="lang-javascript">  function createTaxi(driver) {
+</section><section><h2>Prototypical inheritance</h2><p>See <a href="../prototypes/" >Prototypes</a></p>
+</section><section><h2>Patterns</h2></section><section><h3>Factory function</h3><pre><code class="lang-javascript">  function createTaxi(car, driver) {
     // use any object creation technique
-    const taxi = createCar();
-    taxi.driver = driver;
-    taxi.meter = new Meter();
+    const taxi = {
+      car,
+      driver,
+      meter: new Meter()
+    };
 
-    taxi.on(&#39;start&#39;, taxi.meter.start);
-    taxi.on(&#39;stop&#39;, taxi.meter.stop);
+    car.on(&#39;start&#39;, taxi.meter.start);
+    car.on(&#39;stop&#39;, taxi.meter.stop);
 
     return taxi;
   }
@@ -189,6 +196,9 @@ or has disabled extensions.</p>
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("Objects");
+  </script>
 </body>
 
 </html>

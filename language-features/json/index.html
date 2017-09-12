@@ -5,12 +5,17 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Language Features</a>
+      > JSON
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
         </section><section><h1>JSON</h1><p>JSON stands for JavaScript Object Notation and is a subset of the language.
 It is intended and used as a data exchange format.</p>
-</section><section><h2>Syntax</h2><p>See <a href="http://www.json.org/">JSON specification</a></p>
+</section><section><h2>Syntax</h2><p>See <a href="http://www.json.org/" target="_blank">JSON specification</a></p>
 </section><section><h2>JSON methods</h2><pre><code class="lang-javascript">  const object = JSON.parse(&#39;{ &quot;id&quot;: 0, &quot;message&quot;: &quot;hello&quot;, &quot;someArray&quot;: [1, 2, 3]  }&#39;);
   console.log(object.message, object.number, object.someArray);
 </code></pre>
@@ -22,12 +27,15 @@ It is intended and used as a data exchange format.</p>
 
   const jsonString = JSON.stringify(object);
 </code></pre>
-<p>See [<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON</a>]</p>
+<p>See [<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON</a>]</p>
 </section><section><h2>Mime Type</h2><p><code>application/json</code></p>
 
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("JSON");
+  </script>
 </body>
 
 </html>

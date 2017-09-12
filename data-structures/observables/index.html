@@ -5,7 +5,12 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Data Structures</a>
+      > Observables
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
         </section><section><h1>Observables</h1></section><section><h2>Push/Pull</h2></section><section><h3>Events are a push mechanism.</h3><p>The consumer <code>handleEvent</code> is just a callback.
@@ -30,6 +35,9 @@ We have no guarantees when or how many times it would be called. The producer ha
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("Observables");
+  </script>
 </body>
 
 </html>

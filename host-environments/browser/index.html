@@ -5,7 +5,12 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Host Environments</a>
+      > Browsers
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
         </section><section><h1>Browser</h1><p>The browser is both powerful and restricted at the same time.</p>
@@ -24,7 +29,7 @@
     // handle each event e.g. click
   });
 </code></pre>
-<p><em>Anti-Pattern</em></p>
+</section><section><h3>&nbsp;</h3><p><em>Anti-Pattern</em></p>
 <pre><code class="lang-javascript">  /* !!! THIS IS BAD CODE!!! */
   document.write(&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;);
 </code></pre>
@@ -43,10 +48,16 @@
   sessionStorage.getItem(&#39;username&#39;);
   sessionStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
 </code></pre>
-</section><section><h3>User Media</h3></section><section><h3>Service Workers</h3>
+</section><section><h3>User Media</h3></section><section><h3>Service Workers</h3></section><section><h2>Links</h2><ul>
+<li><a href="https://kangax.github.io/compat-table/es6/" target="_blank">Browsers language support</a></li>
+</ul>
+
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("Browsers");
+  </script>
 </body>
 
 </html>

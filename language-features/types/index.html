@@ -5,7 +5,12 @@
 </head>
 
 <body>
-  <header id="main-header">INF310: Modern JS, Fall 2017 <a id="back-link" href="../">Back</a></header>
+  <header id="main-header">
+    <a href="/">INF310: Modern JS, Fall 2017</a>
+      > <a href="../">Language Features</a>
+      > Types
+      <a id="back-link" href="../">Back</a>
+  </header>
   <div class="reveal">
     <div class="slides">
         </section><section><h1>Types</h1><p>Variables don&#39;t have types.</p>
@@ -80,12 +85,15 @@ from their respective prototypes.</p>
 </section><section><h2>JIT Optimization</h2><p>Internally JavaScript engines track the type of the arguments
 passed to every function call in order to optimize performance.</p>
 </section><section><h2>Links</h2><ul>
-<li><a href="http://blog.brew.com.hk/not-everything-in-javascript-is-an-object/">Primitive types vs Objects</a></li>
+<li><a href="http://blog.brew.com.hk/not-everything-in-javascript-is-an-object/" target="_blank">Primitive types vs Objects</a></li>
 </ul>
 
     </div>
   </div>
   <script src="/build/index.js"></script>
+  <script>
+    window.modernJS.init("Types");
+  </script>
 </body>
 
 </html>
