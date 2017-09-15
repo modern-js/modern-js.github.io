@@ -9,20 +9,23 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Operators
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Operators</h1></section><section><h2>Unary Operators</h2><pre><code class="lang-javascript">  !a // logical NOT
+      <section>
+        <h5 class="inline-h">
+            Operators
+        </h5>
+</section><section><h5 class="inline-h">Unary Operators</h5><pre><code class="lang-javascript">  !a // logical NOT
   ~a // bitwise NOT
 
   +a // unary plus
   -a // unary minus
 </code></pre>
-</section><section><h2>Logical Operators</h2><pre><code class="lang-javascript">  a &amp;&amp; b; // logical AND; short circuit, returns the value
+</section><section><h5 class="inline-h">Logical Operators</h5><pre><code class="lang-javascript">  a &amp;&amp; b; // logical AND; short circuit, returns the value
   a || b; // logical OR; short circuit, returns the value
 </code></pre>
-</section><section><h2>Bitwise Operators</h2><pre><code class="lang-javascript">  a &lt;&lt; 1 // bitwise shift left, preserves the sign
+</section><section><h5 class="inline-h">Bitwise Operators</h5><pre><code class="lang-javascript">  a &lt;&lt; 1 // bitwise shift left, preserves the sign
   a &gt;&gt; 1 // bitwise shift right, preserves the sign
   a &gt;&gt;&gt; 1 // bitwise shift right, disregards sign
 
@@ -30,20 +33,30 @@
   a | 0; // bitwise OR
   a ^ 0; // bitwise XOR
 </code></pre>
-</section><section><h2>Assignment Operators</h2><pre><code class="lang-javascript">  a = 1; // assigns the value 1 to the variable &quot;a&quot;
+</section><section><h5 class="inline-h">Assignment Operators</h5><pre><code class="lang-javascript">  a = 1; // assigns the value 1 to the variable &quot;a&quot;
   a += 1; // increment the value of the variable &quot;a&quot;
   a -= 1; // decrement the value of the variable &quot;a&quot;
   a *= 1; // multiply the value of the variable &quot;a&quot;
 </code></pre>
-</section><section><h2>Pipe operator proposal</h2><pre><code class="lang-javascript">  &quot;terces&quot; |&gt; reverse |&gt; toUpperCase  // SECRET
+</section><section><h5 class="inline-h">Pipe operator proposal</h5><pre><code class="lang-javascript">  &quot;terces&quot; |&gt; reverse |&gt; toUpperCase  // SECRET
 
   // equivalent to:
   toUpperCase(reverse(&quot;terces&quot;));
 </code></pre>
 <p>See <a href="https://github.com/tc39/proposal-pipeline-operator" target="_blank">Pipe operator proposal</a></p>
-</section><section><h2>Operator precedence</h2><p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank">Operator Precedence on MDN</a></p>
+</section><section><h5 class="inline-h">Operator precedence</h5><p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank">Operator Precedence on MDN</a></p>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/conditionals">
+Conditionals
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/variables">
+Variables and bindings
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

@@ -9,28 +9,45 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > JSON
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>JSON</h1><p>JSON stands for JavaScript Object Notation and is a subset of the language.
+      <section>
+        <h5 class="inline-h">
+            JSON
+        </h5>
+<p>JSON stands for JavaScript Object Notation and is a subset of the language.
 It is intended and used as a data exchange format.</p>
-</section><section><h2>Syntax</h2><p>See <a href="http://www.json.org/" target="_blank">JSON specification</a></p>
-</section><section><h2>JSON methods</h2><pre><code class="lang-javascript">  const object = JSON.parse(&#39;{ &quot;id&quot;: 0, &quot;message&quot;: &quot;hello&quot;, &quot;someArray&quot;: [1, 2, 3]  }&#39;);
-  console.log(object.message, object.number, object.someArray);
+</section><section><h5 class="inline-h">Syntax</h5><p>See <a href="http://www.json.org/" target="_blank">JSON specification</a></p>
+</section><section><h5 class="inline-h">JSON parse</h5><pre><code class="lang-javascript">const jsonString = &#39;{ &quot;id&quot;: 0, &quot;message&quot;: &quot;hello&quot;, &quot;someArray&quot;: [1, 2, 3]  }&#39;;
+const object = JSON.parse(jsonString);
+console.log(object.message, object.number, object.someArray);
+
+JSON.parse(100); // returns 100
+JSON.parse(&quot;test&quot;); // throws an error
 </code></pre>
-<pre><code class="lang-javascript">  const object = {
+</section><section><h5 class="inline-h">JSON stringify</h5><pre><code class="lang-javascript">  const object = {
     id: 1,
     message: &#39;hello&#39;,
     myArray: [1, 2, { anotherObject: true }]
   };
 
   const jsonString = JSON.stringify(object);
+  const messageOnly = JSOn.stringify(object, [&#39;message&#39;]);
 </code></pre>
-<p>See [<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON</a>]</p>
-</section><section><h2>Mime Type</h2><p><code>application/json</code></p>
+</section><section><h5 class="inline-h">Links</h5><p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank">MDN JSON reference</a></p>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/functions">
+Functions
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/arrays">
+Arrays
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

@@ -9,22 +9,35 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Host Environments</a>
       > Event loop
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Event loop</h1></section><section><h2>Timers</h2><pre><code class="lang-javascript">  const timeout = setTimeout(function () {}, milliseconds);
+      <section>
+        <h5 class="inline-h">
+            Event loop
+        </h5>
+</section><section><h5 class="inline-h">Timers</h5><pre><code class="lang-javascript">  const timeout = setTimeout(function () {}, milliseconds);
   clearTimeout(timeout);
 
   const interval = setInterval(function () {}, milliseconds);
   clearInterval(interval);
 </code></pre>
-</section><section><h2>Microtasks</h2><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;third&#39;), 0);
+</section><section><h5 class="inline-h">Microtasks</h5><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;third&#39;), 0);
   Promise.resolve(&#39;second&#39;).then(console.log);
   console.log(&#39;first&#39;);
 </code></pre>
-</section><section><h2>Scheduling</h2>
-</div>
+</section><section><h5 class="inline-h">Scheduling</h5>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/host-environments/gaming">
+Gaming
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/host-environments/engines">
+Engines
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

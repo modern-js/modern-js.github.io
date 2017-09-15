@@ -9,24 +9,27 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Functions
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Functions</h1></section><section><h2>Anatomy of a function</h2><p>Functions are objects that inherit from <code>Function.prototype</code>.
+      <section>
+        <h5 class="inline-h">
+            Functions
+        </h5>
+</section><section><h5 class="inline-h">Anatomy of a function</h5><p>Functions are objects that inherit from <code>Function.prototype</code>.
 To become a function, an object must implement
 the <code>[[Call]]</code> and <code>[[Construct]]</code> internal methods.</p>
-</section><section><h2>&nbsp;</h2><p>Functions have a <code>declaration</code>, also called a <code>function signature</code> and a <code>body</code>.
+</section><section><h5 class="inline-h">&nbsp;</h5><p>Functions have a <code>declaration</code>, also called a <code>function signature</code> and a <code>body</code>.
 The <code>declaration</code> contains an optional name and a list of parameters.
 The body is a code block (ordered statements).</p>
-</section><section><h2>&nbsp;</h2><p>All functions can return a value through the <code>return</code> statement.
+</section><section><h5 class="inline-h">&nbsp;</h5><p>All functions can return a value through the <code>return</code> statement.
 Arrow functions return the value of the last expression.
 If no explicit value is specified, the <code>undefined</code> value is returned by default.</p>
 <p>Executing a function creates a new internal <code>scope</code> object.</p>
-</section><section><h2>Properties</h2><pre><code class="lang-javascript">  // the number of parameters the function formally accepts
+</section><section><h5 class="inline-h">Properties</h5><pre><code class="lang-javascript">  // the number of parameters the function formally accepts
   f.length
 </code></pre>
-</section><section><h2>Statement vs expression form</h2><p>Both forms define a function value and bind it to a variable with the given name.
+</section><section><h5 class="inline-h">Statement vs expression form</h5><p>Both forms define a function value and bind it to a variable with the given name.
 But function statements are hoisted. The following two snippets of code are equivalent.</p>
 <pre><code class="lang-javascript">  // a function statement, the name is mandatory
   function identity(parameter) {
@@ -38,7 +41,7 @@ But function statements are hoisted. The following two snippets of code are equi
     return parameter;
   };
 </code></pre>
-</section><section><h2>Arrow functions</h2><pre><code class="lang-javascript">  // single argument arrow function declaration
+</section><section><h5 class="inline-h">Arrow functions</h5><pre><code class="lang-javascript">  // single argument arrow function declaration
   // returns the value of the last (and only) expression
   const identity = id =&gt; id;
 
@@ -52,7 +55,7 @@ But function statements are hoisted. The following two snippets of code are equi
     }
   };
 </code></pre>
-</section><section><h2>Methods</h2><p>A method is a function which is assigned as a property of an object.</p>
+</section><section><h5 class="inline-h">Methods</h5><p>A method is a function which is assigned as a property of an object.</p>
 <pre><code class="lang-javascript">  // es5
   var object = {
     method: function () { doStuff(); }
@@ -63,7 +66,7 @@ But function statements are hoisted. The following two snippets of code are equi
     method() { doStuff(); }
   };
 </code></pre>
-</section><section><h3>Calling context</h3><p>When using dot notation to invoke a method e.g. <code>object.method()</code>
+</section><section><h5 class="inline-h">Calling context</h5><p>When using dot notation to invoke a method e.g. <code>object.method()</code>
 the value of <code>this</code> in the scope of the function execution
 is assigned the <code>object</code> value.</p>
 <pre><code class="lang-javascript">const getFullName = function fullName() {
@@ -78,7 +81,7 @@ const person  = {
 
 person.getName(); // returns &quot;John Doe&quot;
 </code></pre>
-</section><section><h3>Arrows are not methods</h3><p>Arrow functions used as methods have their <code>this</code> assigned to the <code>this</code> value of the outer scope.
+</section><section><h5 class="inline-h">Arrows are not methods</h5><p>Arrow functions used as methods have their <code>this</code> assigned to the <code>this</code> value of the outer scope.
 Their <code>this</code> <strong>is NOT</strong> the object from their invocation.</p>
 <pre><code class="lang-javascript">// this = undefined
 const getFullName = () =&gt; `${this.firstName} ${this.lastName}`;
@@ -91,7 +94,7 @@ const person  = {
 
 person.getName(); // throws an error
 </code></pre>
-</section><section><h2>Lexical scopes</h2><p>Functions have access to the scope containing their definition,
+</section><section><h5 class="inline-h">Lexical scopes</h5><p>Functions have access to the scope containing their definition,
 and it&#39;s parent scopes.</p>
 <pre><code class="lang-javascript">function factory(factoryOptions) {
   const config = getConfig();
@@ -104,7 +107,7 @@ and it&#39;s parent scopes.</p>
   };
 }
 </code></pre>
-</section><section><h2>Execution context</h2><p>The <code>apply</code> and <code>call</code> methods on <code>Function.prototype</code> allow us
+</section><section><h5 class="inline-h">Execution context</h5><p>The <code>apply</code> and <code>call</code> methods on <code>Function.prototype</code> allow us
 to execute functions with explicitly set parameters and <code>this</code> value.</p>
 <pre><code class="lang-javascript">  function f(x) { return x * (this.y + this.z); }
   const useAsThis = { y:1, z: 2 };
@@ -116,7 +119,7 @@ to execute functions with explicitly set parameters and <code>this</code> value.
   // executes the function with context as the &quot;this&quot; argument
   f.apply(useAsThis, [parameter1, parameter2]);
 </code></pre>
-</section><section><h2>Patterns</h2></section><section><h3>IEFE</h3><p>This pattern is going out of style due to proper module semantics
+</section><section><h5 class="inline-h">Patterns</h5></section><section><h5 class="inline-h">IEFE</h5><p>This pattern is going out of style due to proper module semantics
 in the new versions of JavaScript</p>
 <pre><code class="lang-javascript">// the IEFE pattern:
 // declare a function and execute it immediately
@@ -125,7 +128,7 @@ in the new versions of JavaScript</p>
   superCoolLibrary.render(data);
 }());
 </code></pre>
-</section><section><h3>Pseudo-modules</h3><p>This pattern is going out of style due to proper module semantics
+</section><section><h5 class="inline-h">Pseudo-modules</h5><p>This pattern is going out of style due to proper module semantics
 in the new versions of JavaScript</p>
 <pre><code class="lang-javascript">// this is an old module pattern:
 // assign the result of an IEFE to a variable
@@ -143,7 +146,7 @@ var myModule = (function () {
 myModule.publicMethod(); // &quot;private&quot;
 myModule.privateVar // undefined
 </code></pre>
-</section><section><h3>Higher Order Functions</h3><p>Higher order functions are the bread and butter of functional programming</p>
+</section><section><h5 class="inline-h">Higher Order Functions</h5><p>Higher order functions are the bread and butter of functional programming</p>
 <pre><code class="lang-javascript">  array.filter(element =&gt; isValid(element));
 
   setTimeout(function () {
@@ -154,7 +157,7 @@ myModule.privateVar // undefined
     response.send(&#39;hello world!&#39;);
   });
 </code></pre>
-</section><section><h3>Currying</h3><pre><code class="lang-javascript">  // Currying
+</section><section><h5 class="inline-h">Currying</h5><pre><code class="lang-javascript">  // Currying
   function name(family) {
     return function (personal) {
       return `${personal} ${family}`;
@@ -169,7 +172,7 @@ myModule.privateVar // undefined
   const marge = simpson(&#39;Marge&#39;);
   const bart = name(&#39;Simpson&#39;)(&#39;Bart&#39;);
 </code></pre>
-</section><section><h3>Bind</h3><pre><code class="lang-javascript">  function name(family, personal) {
+</section><section><h5 class="inline-h">Bind</h5><pre><code class="lang-javascript">  function name(family, personal) {
     return `${personal} ${family}`;
   }
 
@@ -181,12 +184,22 @@ myModule.privateVar // undefined
 
   const lisa = simpson(&#39;Lisa&#39;);
 </code></pre>
-</section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1" target="_blank">Factory functions patterns</a></li>
 <li><a href="https://dev.to/simov/anonymous-recursion-in-javascript" target="_blank">the Y combinator function</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/generators-and-iterators">
+Generators and Iterators
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/json">
+JSON
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

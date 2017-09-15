@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Structure and Grammar
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Language Structure</h1></section><section><h2>Statements</h2><p>Statements do not resolve to a value.</p>
+      <section>
+        <h5 class="inline-h">
+            Structure and Grammar
+        </h5>
+</section><section><h5 class="inline-h">Statements</h5><p>Statements do not resolve to a value.</p>
 <pre><code class="lang-javascript">  {} // code block statement
 
   function f() { return } / class c {}
@@ -30,7 +33,7 @@
 
   debugger
 </code></pre>
-</section><section><h2>Expressions</h2><p>Everything that is not a statement, is an expression.
+</section><section><h5 class="inline-h">Expressions</h5><p>Everything that is not a statement, is an expression.
 Expressions resolve to a value</p>
 <pre><code class="lang-javascript">  5 // a literal number expression;
   &quot;use strict&quot; // a string literal expression (pragma)
@@ -39,10 +42,11 @@ Expressions resolve to a value</p>
   a + b // addition expression  
   a = 5 // assignment expression
 
-  //the comma expression returns the result of the last expression
+  // the comma expression evaluates to
+  // the result of the second expression
   console.log(message), message
 </code></pre>
-</section><section><h2>Statement position</h2><p>A new statement usually begins
+</section><section><h5 class="inline-h">Statement position</h5><p>A new statement usually begins
 at the start of a line (except for special cases)
 or after a semi-colon <code>;</code></p>
 <pre><code class="lang-javascript">  5 // a number literal expression in statement position
@@ -63,7 +67,7 @@ or after a semi-colon <code>;</code></p>
   // assignment of a code block to a variable
   var p2 = { x: 1; y: 2 } // this will throw an error
 </code></pre>
-</section><section><h2>Expression position</h2><p>You cannot a statement when an expression is expected</p>
+</section><section><h5 class="inline-h">Expression position</h5><p>You cannot use a statement when an expression is expected</p>
 <pre><code class="lang-javascript">  //&quot;if&quot; is a statement
   //the following code will throw an error:
   // - function arguments are a list of expressions
@@ -75,7 +79,23 @@ or after a semi-colon <code>;</code></p>
   console.log(condition ? 5 : 12);
   var z = 42 + condition ? 12 : 0;
 </code></pre>
-</section><section><h2>Built-in objects</h2><ul>
+</section><section><h5 class="inline-h">Reading JavaScript</h5><pre><code>console.log(message), message
+</code></pre><ul>
+<li>a comma expression <code>c1, c2</code> with:<ul>
+<li><code>c1</code>: a function invocation expression <code>f(x)</code> with:<ul>
+<li><code>f</code>: a property access expression <code>o.p</code> with:<ul>
+<li><code>o</code>: the value of the <code>console</code> binding</li>
+<li><code>p</code>: the <code>&quot;log&quot;</code> string literal</li>
+</ul>
+</li>
+<li><code>x</code>: the value of the <code>message</code> binding</li>
+</ul>
+</li>
+<li><code>c2</code>: the value of the <code>message</code> binding</li>
+</ul>
+</li>
+</ul>
+</section><section><h5 class="inline-h">Built-in objects</h5><ul>
 <li><a href="../conditionals/" >Boolean</a></li>
 <li><a href="../numbers-and-math/" >Number</a></li>
 <li><a href="../strings/" >String</a></li>
@@ -84,12 +104,23 @@ or after a semi-colon <code>;</code></p>
 <li><a href="../functions/" >Function</a></li>
 <li>(and more)</li>
 </ul>
-</section><section><h2>Host environments</h2><p>Host environments also inject global objects.
+</section><section><h5 class="inline-h">Host environments</h5><p>Host environments can expand and modify
+how the language behaves. They also inject global objects
 e.g. <code>require</code> in node.js and <code>window</code> in the browser</p>
 <p><a href="../../host-environments/" >Host environments</a></p>
-</section><section><h2>Links</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference</a></p>
+</section><section><h5 class="inline-h">Links</h5><ul>
+<li><a href="http://esprima.org/demo/parse.html" target="_blank">ESPrima Parser Demo</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference" target="_blank">MDN JavaScript reference</a></li>
+</ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/variables">
+Variables and bindings
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

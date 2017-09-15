@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Data Structures</a>
       > Maps and sets
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Sets</h1><pre><code class="lang-javascript"> const uniqueNumbers = new Set();
+      <section>
+        <h5 class="inline-h">
+            Maps and sets
+        </h5>
+</section><section><h5 class="inline-h">Sets</h5><pre><code class="lang-javascript"> const uniqueNumbers = new Set();
 
  uniqueNumbers.add(1);
  uniqueNumbers.add(1);
@@ -24,7 +27,7 @@
 
  uniqueNumbers.has(5);
 </code></pre>
-</section><section><h1>Maps</h1><pre><code class="lang-javascript">
+</section><section><h5 class="inline-h">Maps</h5><pre><code class="lang-javascript">
   const map = new Map();
 
   map.set(&#39;key&#39;, &#39;value&#39;);
@@ -34,9 +37,9 @@
 
   map.delete(&#39;key&#39;);
 </code></pre>
-</section><section><h1>Weak Sets / Weak Maps</h1><p>These data structures are intended to prevent memory leaks. They do not hold references to the data they contain. Garbage collection can destroy data inside them.</p>
+</section><section><h5 class="inline-h">Weak Sets / Weak Maps</h5><p>These data structures are intended to prevent memory leaks. They do not hold references to the data they contain. Garbage collection can destroy data inside them.</p>
 <p>As such, they are not iterable (they don&#39;t have a <code>forEach</code> method) and no <code>size</code> method.</p>
-</section><section><h1>Weak Sets / Weak Maps</h1><pre><code class="lang-javascript">  const reclamables = new WeakSet();
+</section><section><h5 class="inline-h">Weak Sets / Weak Maps</h5><pre><code class="lang-javascript">  const reclamables = new WeakSet();
   let obj = {};
 
   reclamables.add(obj);
@@ -46,7 +49,17 @@
   reclamables.has(obj); // false
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/data-structures/observables">
+Observables
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/data-structures">
+Data Structures
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

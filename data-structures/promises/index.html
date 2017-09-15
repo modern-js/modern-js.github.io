@@ -9,17 +9,20 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Data Structures</a>
       > Promises
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Promises</h1></section><section><h2>Using promises</h2><p>Handle a value once it&#39;s available</p>
+      <section>
+        <h5 class="inline-h">
+            Promises
+        </h5>
+</section><section><h5 class="inline-h">Using promises</h5><p>Handle a value once it&#39;s available</p>
 <pre><code class="lang-javascript">  waitForAnswer().then(doSomethingWithIt);
 </code></pre>
 <p>Or handle the error if something goes wrong</p>
 <pre><code class="lang-javascript">  waitForAnswer().catch(handleError);
 </code></pre>
-</section><section><h3>Chaining</h3><p>Each <code>then function</code> returns a new promise</p>
+</section><section><h5 class="inline-h">Chaining</h5><p>Each <code>then function</code> returns a new promise</p>
 <pre><code class="lang-javascript">  getUserProfile()
     .then(profile =&gt; download(profile.image))
     .then(profileImage =&gt; applyEffects(profileImage))
@@ -27,14 +30,14 @@
     .then(() =&gt; console.log(&#39;done&#39;))
     .catch(error =&gt; console.error(&#39;something went wrong&#39;));
 </code></pre>
-</section><section><h3>Fan-out</h3><p>Adding multiple handlers for the same promise</p>
+</section><section><h5 class="inline-h">Fan-out</h5><p>Adding multiple handlers for the same promise</p>
 <pre><code class="lang-javascript">  const p1 = waitForAnswer();
   const p2 = p1.then(answer =&gt; console.log(answer));
   const p3 = p1.then(answer =&gt; answer * 2);
   p2.then(console.log);
   p3.then(console.log);
 </code></pre>
-</section><section><h3>Catch order</h3><p><code>handleError</code> will catch an exceptions coming
+</section><section><h5 class="inline-h">Catch order</h5><p><code>handleError</code> will catch an exceptions coming
 from either <code>waitForAnswer</code> or <code>useAnswer</code></p>
 <pre><code class="lang-javascript">  waitForAnswer()
     .then(useAnswer)
@@ -46,20 +49,20 @@ a default value to the next <code>then function</code></p>
     .catch(logErrorAndDefault)
     .then(useAnswerOrDefault)
 </code></pre>
-</section><section><h3>Execution order</h3><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;A&#39;), 0);
+</section><section><h5 class="inline-h">Execution order</h5><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;A&#39;), 0);
   console.log(&#39;B&#39;);
   Promise.resolve(&#39;C&#39;).then(c =&gt; console.log(c));
   console.log(&#39;D&#39;);
 
   // B D C A
 </code></pre>
-</section><section><h2>Creating promises</h2><pre><code class="lang-javascript">  const waitOneMinute = new Promise((resolve, reject) =&gt; {
+</section><section><h5 class="inline-h">Creating promises</h5><pre><code class="lang-javascript">  const waitOneMinute = new Promise((resolve, reject) =&gt; {
     setTimeout(resolve, 60 * 1000);
   });
 
   waitOneMinute.then(doStuff);
 </code></pre>
-</section><section><h3>Ajax with a promise</h3><pre><code class="lang-javascript">  const ajax = ({ method = &#39;GET&#39;, url, data = null }) =&gt;
+</section><section><h5 class="inline-h">Ajax with a promise</h5><pre><code class="lang-javascript">  const ajax = ({ method = &#39;GET&#39;, url, data = null }) =&gt;
     new Promose((resolve, reject) =&gt; {
       const xhr = new XMLHttpRequest();
       xhr.onreadystatechange = () =&gt; {
@@ -71,7 +74,7 @@ a default value to the next <code>then function</code></p>
     xhr.open(method, url); xhr.send(data);
   });
 </code></pre>
-</section><section><h2>Promise methods</h2><pre><code class="lang-javascript">  Promose.resolve(21)
+</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">  Promose.resolve(21)
     .then(number =&gt; number * 2)
     .then(number =&gt; console.log(number));
 
@@ -80,7 +83,7 @@ a default value to the next <code>then function</code></p>
       console.log(error);
     });
 </code></pre>
-</section><section><h2>Promise methods</h2><pre><code class="lang-javascript">   Promise.all([
+</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">   Promise.all([
      ajax(&#39;myScript.js&#39;),
      ajax(&#39;myStyles.css&#39;)
      ajax(&#39;myData.json&#39;),
@@ -95,12 +98,22 @@ a default value to the next <code>then function</code></p>
      // gets the data from the first source to succeed
    });
 </code></pre>
-</section><section><h3>Promise.try proposal</h3><pre><code class="lang-javascript">  Promise.try(() =&gt; getAnswerMightThrow())
+</section><section><h5 class="inline-h">Promise.try proposal</h5><pre><code class="lang-javascript">  Promise.try(() =&gt; getAnswerMightThrow())
   .then(useAnswer)
   .catch(handleError);
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/data-structures/stores">
+Stores
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/data-structures/observables">
+Observables
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

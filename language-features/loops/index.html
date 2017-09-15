@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Loops
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Loops</h1></section><section><h2>Counting</h2><pre><code class="lang-javascript">  let i = 5;
+      <section>
+        <h5 class="inline-h">
+            Loops
+        </h5>
+</section><section><h5 class="inline-h">Counting</h5><pre><code class="lang-javascript">  let i = 5;
   while (i &gt; 0) {
     doStuff();
   }
@@ -22,7 +25,7 @@
     doStuff();
   }
 </code></pre>
-</section><section><h2>Variable binding</h2><p><code>var</code> is bound once</p>
+</section><section><h5 class="inline-h">Variable binding</h5><p><code>var</code> is bound once</p>
 <pre><code class="lang-javascript">  for (var i = 0; i &lt; 5; i += 1) {
     setTimeout(() =&gt; console.log(i), 1000);
   }
@@ -36,7 +39,7 @@
 
   //logs: 1 2 3 4 5
 </code></pre>
-</section><section><h2>Enumeration</h2><pre><code class="lang-javascript">  const array = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+</section><section><h5 class="inline-h">Enumeration</h5><pre><code class="lang-javascript">  const array = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
   for (const index in array) {
     console.log(index); // 0, 1, 2
     console.log(array[index]); // &#39;a&#39;, &#39;b&#39;, &#39;c&#39;
@@ -47,14 +50,14 @@
     console.log(item); // &#39;a&#39;, &#39;b&#39;, &#39;c&#39;
   }
 </code></pre>
-</section><section><h2>Recursion</h2><pre><code class="lang-javascript">  function countdown(n) {
+</section><section><h5 class="inline-h">Recursion</h5><pre><code class="lang-javascript">  function countdown(n) {
     console.log(n);
     if (n &gt; 0) {
       countdown(n - 1);
     }
   }
 </code></pre>
-</section><section><h2>Scheduling</h2><pre><code class="lang-javascript">  setInterval(
+</section><section><h5 class="inline-h">Scheduling</h5><pre><code class="lang-javascript">  setInterval(
     () =&gt; { console.log(&#39;gets called each second&#39;); },
     1000
   );
@@ -70,7 +73,17 @@
   };
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/error-handling">
+Error handling
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/conditionals">
+Conditionals
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

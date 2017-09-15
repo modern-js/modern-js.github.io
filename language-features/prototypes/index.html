@@ -9,14 +9,17 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Prototypes
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Prototypes</h1><p>JavaScript implements a prototype-based inheritance model.
+      <section>
+        <h5 class="inline-h">
+            Prototypes
+        </h5>
+<p>JavaScript implements a prototype-based inheritance model.
 Each object has a special prototype field that points directly
 to another object (NOT a class).</p>
-</section><section><h2>The hidden link</h2><p>An object literal has its prototype set to <code>Object.prototype</code></p>
+</section><section><h5 class="inline-h">The hidden link</h5><p>An object literal has its prototype set to <code>Object.prototype</code></p>
 <pre><code class="lang-javascript">  Object.getPrototypeOf({ a: 1 }) === Object.prototype // true
   Object.getPrototypeOf([ 1, 2 ]) === Object.prototype // false
   Object.getPrototypeOf([ 1, 2 ]) === Array.prototype // true
@@ -24,10 +27,10 @@ to another object (NOT a class).</p>
   // true
 </code></pre>
 <p><code>Object.getPrototypeOf</code> should not be used in applications</p>
-</section><section><h2>Prototype chain</h2><p>If a property is missing when looking for properties
+</section><section><h5 class="inline-h">Prototype chain</h5><p>If a property is missing when looking for properties
 (using the <code>.</code> or <code>[]</code> syntax), the engine will
 search for it down the prototype chain.</p>
-</section><section><h2>Objects without classes</h2></section><section><h2>Runtime dynamic prototypes</h2><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
+</section><section><h5 class="inline-h">Objects without classes</h5></section><section><h5 class="inline-h">Runtime dynamic prototypes</h5><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
 <pre><code class="lang-javascript">  const protoPerson = {
     sayHi() { return `Hi, I&#39;m ${this.name}`}
   };
@@ -45,7 +48,17 @@ search for it down the prototype chain.</p>
   misho.sayHi(); // &quot;I forgot my name&quot;
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/scopes">
+Scopes
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/classes">
+Classes
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

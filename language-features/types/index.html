@@ -9,13 +9,18 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Types
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Types</h1><p>Variables don&#39;t have types.</p>
-<p>Values have types.</p>
-</section><section><h2>Primitive types</h2><ul>
+      <section>
+        <h5 class="inline-h">
+            Types
+        </h5>
+<ul>
+<li>Variables don&#39;t have types.</li>
+<li>Values have types.</li>
+</ul>
+</section><section><h5 class="inline-h">Primitive types</h5><ul>
 <li>boolean</li>
 <li>string</li>
 <li>number</li>
@@ -23,8 +28,7 @@
 <li>null</li>
 <li>undefined</li>
 </ul>
-</section><section><h2>Complex types</h2><p>All complex types are objects.</p>
-<ul>
+</section><section><h5 class="inline-h">Complex types</h5><ul>
 <li>object<ul>
 <li>function<ul>
 <li>class</li>
@@ -34,8 +38,9 @@
 <li>regex</li>
 </ul>
 </li>
+<li><em>(all complex types are objects)</em></li>
 </ul>
-</section><section><h2>The <code>typeof</code> operator</h2><pre><code class="lang-javascript">typeof &#39;abc&#39; // &quot;string&quot;
+</section><section><h5 class="inline-h">The <code>typeof</code> operator</h5><pre><code class="lang-javascript">typeof &#39;abc&#39; // &quot;string&quot;
 typeof 123 // &quot;number&quot;
 typeof 1.23 // &quot;number&quot;
 typeof NaN // &quot;number&quot;
@@ -47,7 +52,7 @@ typeof [] // &quot;object&quot;
 </code></pre>
 <p>You should avoid relying on <code>typeof</code>
 in your application code.</p>
-</section><section><h2>Methods and properties of literals</h2><p>They inherit properties and methods
+</section><section><h5 class="inline-h">Methods and properties of literals</h5><p>They inherit properties and methods
 from their respective prototypes.</p>
 <pre><code class="lang-javascript">  &quot;hello&quot;.length // 4
   &quot;hello&quot;.split(&#39;&#39;) // [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
@@ -58,14 +63,14 @@ from their respective prototypes.</p>
   ({ x: 1 }.x) // 1
   [1, 2, 3].length // 2
 </code></pre>
-</section><section><h2>References</h2><p>Primitive values are immutable and only create a single instance per value.</p>
+</section><section><h5 class="inline-h">References</h5><p>Primitive values are immutable and only create a single instance per value.</p>
 <pre><code class="lang-javascript">  var x = 5; var y = 5;
   x === y // true
 
   var s = &quot;ab&quot;; var z = &quot;ab&quot;;
   s === z // true
 </code></pre>
-</section><section><h3>Each object is a separate instance</h3><pre><code class="lang-javascript">  var x = new Number(2);
+</section><section><h5 class="inline-h">Each object is a separate instance</h5><pre><code class="lang-javascript">  var x = new Number(2);
   var y = new Number(2);
   x === y // false
 
@@ -75,20 +80,30 @@ from their respective prototypes.</p>
   {} === {} // false
   { x: 1 } === { x: 1 } // false
 </code></pre>
-</section><section><h2>Values and prototypes</h2><pre><code class="lang-javascript">  String.prototype.isPrototypeOf(&quot;abc&quot;) // true
+</section><section><h5 class="inline-h">Values and prototypes</h5><pre><code class="lang-javascript">  String.prototype.isPrototypeOf(&quot;abc&quot;) // true
 
   Number.prototype.isPrototypeOf(3.14) // true
   Number.prototype.isPrototypeOf(NaN) // true
 
   RegExp.prototype.isPrototypeOf(/(\d+)/) // true
 </code></pre>
-</section><section><h2>JIT Optimization</h2><p>Internally JavaScript engines track the type of the arguments
+</section><section><h5 class="inline-h">JIT Optimization</h5><p>Internally JavaScript engines track the type of the arguments
 passed to every function call in order to optimize performance.</p>
-</section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="http://blog.brew.com.hk/not-everything-in-javascript-is-an-object/" target="_blank">Primitive types vs Objects</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/numbers-and-math">
+Numbers and Math
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/error-handling">
+Error handling
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

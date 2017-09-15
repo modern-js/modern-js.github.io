@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Conditionals
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Conditionals</h1></section><section><h2>comparators</h2><p><em>Style guide: use strict comparisons</em></p>
+      <section>
+        <h5 class="inline-h">
+            Conditionals
+        </h5>
+</section><section><h5 class="inline-h">comparators</h5><p><em>Style guide: use strict comparisons</em></p>
 <pre><code class="lang-javascript">  a == b;
   a === b;
 
@@ -28,8 +31,9 @@
 
   // there are no strict versions of &gt; and &lt;
 </code></pre>
-</section><section><h2>logical operators</h2><pre><code class="lang-javascript">  a &amp;&amp; b; // logical AND; short circuit, returns value (not Boolean)
-  a || b; // logical OR; short circuit, returns value (not Boolean)
+</section><section><h5 class="inline-h">logical operators</h5><pre><code class="lang-javascript">  // logical operators return values (not Booleans)
+  a &amp;&amp; b; // logical AND; short circuit
+  a || b; // logical OR; short circuit
 
   // use AND to guard against null / undefined
   doSomething(myObject &amp;&amp; myObject.myProperty);
@@ -39,7 +43,7 @@
   sumNumbers(numbers || []);
   (myObject || defaultObject).doSomething();
 </code></pre>
-</section><section><h2>False-y values</h2><ul>
+</section><section><h5 class="inline-h">False-y values</h5><ul>
 <li><code>false</code></li>
 <li><code>undefined</code></li>
 <li><code>null</code></li>
@@ -47,7 +51,7 @@
 <li><code>NaN</code></li>
 <li><code>&quot;&quot;</code> empty string</li>
 </ul>
-</section><section><h2>if</h2><pre><code class="lang-javascript">  if (condition) {
+</section><section><h5 class="inline-h">if</h5><pre><code class="lang-javascript">  if (condition) {
 
   // the following &quot;else&quot; forms are equivalent
   } else {
@@ -58,9 +62,9 @@
     }
   }
 </code></pre>
-</section><section><h2>ternary</h2><pre><code class="lang-javascript">  const result = condition ? resultIfTrue : resultIfFalse;
+</section><section><h5 class="inline-h">ternary</h5><pre><code class="lang-javascript">  const result = condition ? resultIfTrue : resultIfFalse;
 </code></pre>
-</section><section><h2>switch</h2><pre><code class="lang-javascript">  switch (condition) {
+</section><section><h5 class="inline-h">switch</h5><pre><code class="lang-javascript">  switch (condition) {
     case value1:
       doStuff();
       break;
@@ -72,18 +76,28 @@
       doDefaultStuff();
   }
 </code></pre>
-</section><section><h2>Pattern matching proposal</h2><pre><code class="lang-javascript">  match (expression) {
+</section><section><h5 class="inline-h">Pattern matching proposal</h5><pre><code class="lang-javascript">  match (expression) {
     [a, b, ...c]: useArray(a, b, c)
     { name, age }: useObject(name, age)
     else: { throw new Error(); }
   }
 </code></pre>
-</section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="https://dorey.github.io/JavaScript-Equality-Table/" target="_blank">Comparison table</a></li>
 <li><a href="https://github.com/tc39/proposal-pattern-matching" target="_blank">Pattern matching proposal</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/loops">
+Loops
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/operators">
+Operators
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Patterns and Principles</a>
       > SOLID Principles
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>SOLID Principles</h1></section><section><h2>Single Responsibility</h2><p>A module should have only one source of change.</p>
+      <section>
+        <h5 class="inline-h">
+            SOLID Principles
+        </h5>
+</section><section><h5 class="inline-h">Single Responsibility</h5><p>A module should have only one source of change.</p>
 <p>Bad:</p>
 <pre><code class="lang-javascript">  function gameOver(gameState) {
     if (gameState.player1.health === 0) {
@@ -29,9 +32,9 @@
     reportWinner(getWinner(gameState));
   }
 </code></pre>
-</section><section><h2>Open/Close</h2><p>A module should be open for extension and closed for modification.</p>
+</section><section><h5 class="inline-h">Open/Close</h5><p>A module should be open for extension and closed for modification.</p>
 <pre><code>
-</code></pre></section><section><h2>Liskov substitution</h2><p>A module should be interchangeable with any module that implements the same interface.</p>
+</code></pre></section><section><h5 class="inline-h">Liskov substitution</h5><p>A module should be interchangeable with any module that implements the same interface.</p>
 <pre><code class="lang-javascript">const thermometer = (sensor) =&gt; ({
    city: sensor.city,
    averageTemp() {
@@ -53,7 +56,7 @@ hottestCity([
   thermometer({ city: &#39;New York&#39;, readings() { return [75, 76, 77]; }})
 ]);
 </code></pre>
-</section><section><h4>&nbsp;</h4><pre><code class="lang-javascript">  const humanWorker = {
+</section><section><h5 class="inline-h">&nbsp;</h5><pre><code class="lang-javascript">  const humanWorker = {
     work() { efficiency = 0.2; },
     rest() { eat(); nap(); }
   };
@@ -75,10 +78,20 @@ hottestCity([
     }
   }
 </code></pre>
-</section><section><h2>Interface segregation</h2><p>A module should use local data objects and not depend on objects from other sub-systems.</p>
-</section><section><h2>Dependency inversion</h2><p>The specific implementation should depend on the abstracted business logic</p>
+</section><section><h5 class="inline-h">Interface segregation</h5><p>A module should use local data objects and not depend on objects from other sub-systems.</p>
+</section><section><h5 class="inline-h">Dependency inversion</h5><p>The specific implementation should depend on the abstracted business logic</p>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/patterns-and-principles/style">
+Code style
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/patterns-and-principles/security">
+Security
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

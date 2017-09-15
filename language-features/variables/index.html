@@ -1,28 +1,37 @@
 <html>
 
 <head>
-  <title>Modern JS : Variables</title>
+  <title>Modern JS : Variables and bindings</title>
 </head>
 
 <body>
   <header id="main-header">
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
-      > Variables
-      <a id="back-link" href="../">Back</a>
+      > Variables and bindings
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Variables</h1></section><section><h2>Declaration</h2><pre><code class="lang-javascript">  aGlobalVar = &#39;a global variable&#39;;
+      <section>
+        <h5 class="inline-h">
+            Variables and bindings
+        </h5>
+</section><section><h5 class="inline-h">Declaration</h5><pre><code class="lang-javascript">  aGlobalVar = &#39;an implicit global scope variable&#39;;
 
-  var funcVar = &#39;a function variable&#39;;
+  var funcVar = &#39;a function scope variable&#39;;
 
-  let blockVar = &#39;a block variable&#39;;
+  let blockVar = &#39;a block scope variable&#39;;
+</code></pre>
+</section><section><h5 class="inline-h">Bindings</h5><pre><code class="lang-javascript">const blockImmutable = &#39;an immutable block scope binding&#39;;
 
-  const blockImmutable = &#39;an immutable block variable&#39;;
+// an immutable module scope binding
+import thing from &#39;lib&#39;;
+
+// global object bindings:
+global, window
 </code></pre>
 <p>See <a href="../scopes/" >Scopes</a></p>
-</section><section><h2>Destructuring</h2><pre><code class="lang-javascript">  const [x, y] = [1, 2];
+</section><section><h5 class="inline-h">Destructuring</h5><pre><code class="lang-javascript">  const [x, y] = [1, 2];
   // x = 1, y = 2
 
   let { height } = { height: 1.83 };
@@ -31,7 +40,7 @@
   const { dog: { name: dogName } } = { dog: { name: &#39;Barsa&#39; } };
   // dogName = &#39;Barsa&#39;
 </code></pre>
-</section><section><h3>Hoisting</h3><p><code>var</code> declarations are hoisted to the top of the scope.
+</section><section><h5 class="inline-h">Hoisting</h5><p><code>var</code> declarations are hoisted to the top of the scope.
 The assignment remains at the same point in the code.</p>
 <pre><code class="lang-javascript">  function sayHi() {
     console.log(hello);
@@ -47,13 +56,13 @@ The assignment remains at the same point in the code.</p>
     hello = &#39;hi&#39;;
   }
 </code></pre>
-</section><section><h2>Temporal Dead Zone (TDZ)</h2><p>You cannot use <code>let</code> and <code>const</code> variable
+</section><section><h5 class="inline-h">Temporal Dead Zone (TDZ)</h5><p>You cannot use <code>let</code> and <code>const</code> variable
 before where they are declared in the code.</p>
 <pre><code class="lang-javascript">  console.log(a); // throws an TDZ error
 
   let a = 5;
 </code></pre>
-</section><section><h2>Bindings and references</h2><p>Variables cannot reference other variables, only values.</p>
+</section><section><h5 class="inline-h">Variables and references</h5><p>Variables cannot reference other variables, only values.</p>
 <pre><code class="lang-javascript">  let s = &quot;hello&quot;;
   let z = s;
   // reassignment
@@ -66,7 +75,7 @@ before where they are declared in the code.</p>
   aRef.msg += &#39; world&#39;;
   console.log(myObj.msg) // &#39;hello world&#39;
 </code></pre>
-</section><section><h2>Parameters and Values</h2><p>Parameters are passed by value.
+</section><section><h5 class="inline-h">Parameters and Values</h5><p>Parameters are passed by value.
 The receiving function cannot change
 the bindings of the calling context.</p>
 <pre><code class="lang-javascript">  function swap(x, y) {
@@ -86,11 +95,21 @@ the bindings of the calling context.</p>
   console.log(myObj); // { x: 10, y: 5 }
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/operators">
+Operators
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/language-structure">
+Structure and Grammar
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>
-  window.modernJS.init("Variables");
+  window.modernJS.init("Variables and bindings");
 </script>
 </body>
 

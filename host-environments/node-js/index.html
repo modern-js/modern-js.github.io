@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Host Environments</a>
       > NodeJS
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>NodeJS</h1></section><section><h2>Built-in modules</h2></section><section><h3>http</h3><pre><code class="lang-javascript">  import { createServer } from &#39;http&#39;;
+      <section>
+        <h5 class="inline-h">
+            NodeJS
+        </h5>
+</section><section><h5 class="inline-h">Built-in modules</h5></section><section><h5 class="inline-h">http</h5><pre><code class="lang-javascript">  import { createServer } from &#39;http&#39;;
 
   const server = createServer(
     (req, res) =&gt; res.end(&#39;hello world!&#39;)
@@ -21,7 +24,7 @@
 
   server.listen(7212);
 </code></pre>
-</section><section><h3>fs</h3><pre><code class="lang-javascript">  import fs from &#39;fs&#39;;
+</section><section><h5 class="inline-h">fs</h5><pre><code class="lang-javascript">  import fs from &#39;fs&#39;;
 
   fs.readFile(&#39;./poem.txt&#39;, (error, file) =&gt; {
     if (error) {
@@ -31,23 +34,30 @@
     console.log(file.contents);
   });
 </code></pre>
-</section><section><h3>streams</h3><p>See <a href="../../data-structures/streams/" >Streams</a></p>
-</section><section><h2>NPM modules</h2><p>See <a href="../../development-tools/npm/" >npm</a></p>
-</section><section><h2>Express JS</h2><p>See <a href="../../frameworks-and-libraries/express/" >express</a></p>
-</section><section><h2>using APIs</h2><pre><code class="lang-javascript">  import fetch from &#39;node-fetch&#39;;
+</section><section><h5 class="inline-h">streams</h5><p>See <a href="../../data-structures/streams/" >Streams</a></p>
+</section><section><h5 class="inline-h">NPM modules</h5><p>See <a href="../../development-tools/npm/" >npm</a></p>
+</section><section><h5 class="inline-h">Express JS</h5><p>See <a href="../../frameworks-and-libraries/express/" >express</a></p>
+</section><section><h5 class="inline-h">using APIs</h5><pre><code class="lang-javascript">  import fetch from &#39;node-fetch&#39;;
 
   fetch(&#39;https://api.github.com/orgs/modern-js/members&#39;)
     .then(response =&gt; response.ok ?
       response.json() : Promise.reject())
     .then(members =&gt; members.map(member =&gt; fetch(member.url)))
 </code></pre>
-</section><section><h2>using databases</h2></section><section><h2>using amqp / kafka</h2></section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">using databases</h5></section><section><h5 class="inline-h">using amqp / kafka</h5></section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="http://node.green/" target="_blank">NodeJS language support</a></li>
 <li><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank">List of nodeJS libraries</a></li>
 <li><a href="https://blog.risingstack.com/node-js-http-2-push/" target="_blank">HTTP/2 article</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/host-environments">
+Host environments
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

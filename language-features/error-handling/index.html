@@ -9,17 +9,20 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Error handling
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Error handling</h1></section><section><h2>try/catch</h2><pre><code class="lang-javascript">  try {
+      <section>
+        <h5 class="inline-h">
+            Error handling
+        </h5>
+</section><section><h5 class="inline-h">try/catch</h5><pre><code class="lang-javascript">  try {
     null.doSomething();
   } catch (error) {
     console.log(&#39;null can\&#39;t do shit&#39;);
   }
 </code></pre>
-</section><section><h2>throw</h2><pre><code class="lang-javascript">  function sum(a, b) {
+</section><section><h5 class="inline-h">throw</h5><pre><code class="lang-javascript">  function sum(a, b) {
     if (!a || !b) {
       throw new Error(&#39;expected 2 arguments&#39;);
     }
@@ -28,7 +31,17 @@
   sum(1); // throws an error
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/types">
+Types
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/loops">
+Loops
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

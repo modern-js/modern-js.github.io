@@ -6037,13 +6037,6 @@ module.exports = function initializeNav(title, Reveal) {
   Reveal.addEventListener('slidechanged', (event) => {
     localStorage.setItem(lsKey, event.indexh);
   });
-
-
-  if (document.referrer) {
-    const back = document.getElementById('back-link');
-    back.href = document.referrer;
-    back.style.visibility = 'visibile';
-  }
 };
 
 
@@ -6121,7 +6114,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "#main-header {\r\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\r\n  font-size: 1.75em;\r\n  color: white;\r\n}\r\n\r\n#main-header a, #main-header a:hover, #main-header a:visited {\r\n  color: inherit;\r\n}\r\n\r\n#back-link {\r\n  visibility: hidden;\r\n  float: right;\r\n}\r\n\r\n.reveal ul {\r\n  list-style: none !important;\r\n}\r\n\r\n.reveal code {\r\n  max-height: 100% !important;\r\n}\r\n", ""]);
+exports.push([module.i, "#main-header {\r\n  font-family: \"Source Sans Pro\", Helvetica, sans-serif;\r\n  font-size: 1.75em;\r\n  color: white;\r\n}\r\n\r\n#main-header a, #main-header a:hover, #main-header a:visited {\r\n  color: inherit;\r\n}\r\n\r\n#main-header .nav-link {\r\n  float: right;\r\n}\r\n\r\n.reveal ul {\r\n  list-style: none !important;\r\n}\r\n\r\n.reveal code {\r\n  max-height: 100% !important;\r\n}\r\n\r\n .inline-h {\r\n   display: inline;\r\n   vertical-align: top !important;\r\n }\r\n", ""]);
 
 // exports
 

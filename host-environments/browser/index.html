@@ -9,18 +9,21 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Host Environments</a>
       > Browsers
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Browser</h1><p>The browser is both powerful and restricted at the same time.</p>
-</section><section><h2>Capabilities</h2><ul>
+      <section>
+        <h5 class="inline-h">
+            Browsers
+        </h5>
+<p>The browser is both powerful and restricted at the same time.</p>
+</section><section><h5 class="inline-h">Capabilities</h5><ul>
 <li>networking (multiple complex protocols)</li>
 <li>rendering (html, images, video, canvas, webGL, print)</li>
 <li>user-media (mic, camera, geolocation, joysticks)</li>
 <li>file system access (very restricted, user-driven)</li>
 </ul>
-</section><section><h2>Browser APIs</h2></section><section><h3>DOM</h3><pre><code class="lang-javascript">  const element = document.getElementById(&#39;main_content&#39;);
+</section><section><h5 class="inline-h">Browser APIs</h5></section><section><h5 class="inline-h">DOM</h5><pre><code class="lang-javascript">  const element = document.getElementById(&#39;main_content&#39;);
 </code></pre>
 <pre><code class="lang-javascript">  const element = document.querySelector(&#39;#byId&#39;);
   const elements = document.querySelectorAll(&#39;.byClassName&#39;);
@@ -29,7 +32,7 @@
     // handle each event e.g. click
   });
 </code></pre>
-</section><section><h3>&nbsp;</h3><p><em>Anti-Pattern</em></p>
+</section><section><h5 class="inline-h">&nbsp;</h5><p><em>Anti-Pattern</em></p>
 <pre><code class="lang-javascript">  /* !!! THIS IS BAD CODE!!! */
   document.write(&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;);
 </code></pre>
@@ -41,18 +44,25 @@
   title.textContent = &quot;Content&quot;;
   document.body.appendChild(title);
 </code></pre>
-</section><section><h3>Local Storage</h3><p><code>localStorage</code> is a key-value database inside the browser</p>
+</section><section><h5 class="inline-h">Local Storage</h5><p><code>localStorage</code> is a key-value database inside the browser</p>
 <pre><code class="lang-javascript">  localStorage.getItem(&#39;username&#39;); // null
   localStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
 
   sessionStorage.getItem(&#39;username&#39;);
   sessionStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
 </code></pre>
-</section><section><h3>User Media</h3></section><section><h3>Service Workers</h3></section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">User Media</h5></section><section><h5 class="inline-h">Service Workers</h5></section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="https://kangax.github.io/compat-table/es6/" target="_blank">Browsers language support</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/host-environments/code-loading">
+Code loading
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

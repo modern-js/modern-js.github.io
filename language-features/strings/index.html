@@ -9,12 +9,50 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Strings
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Strings</h1></section><section><h2>String literals</h2></section><section><h2>Template strings</h2></section><section><h2>String methods</h2>
-</div>
+      <section>
+        <h5 class="inline-h">
+            Strings
+        </h5>
+</section><section><h5 class="inline-h">String literals</h5><pre><code class="lang-javascript">  &#39;single quotes string literal&#39;
+  &quot;double quotes string literal&quot;
+
+  const longString = &quot;Lorem ipsum dolor sit amet, &quot;
+    + &quot;cum stet accommodare cu, vituperatoribus te cum. &quot;
+    + &quot;Ut mei viderer persecuti, vero malis ex quo. &quot;;
+</code></pre>
+</section><section><h5 class="inline-h">Template strings</h5><p>Template strings can contain executable expressions.
+Expressions are resolved at the point of definition.</p>
+<pre><code class="lang-javascript">  `back quote template literal with ${expressions}`
+  // will throw if expressions is not defined
+</code></pre>
+</section><section><h5 class="inline-h">Properties Operators</h5><pre><code class="lang-javascript">  const abc = &#39;abcdefg&#39;;
+  const hello = &#39;hello world&#39;;
+
+  abc.length // 3
+  hello.length // 11
+
+  // get a character
+  abc[0] // &quot;a&quot;
+  abc[100] // undefined
+
+  hello === &quot;hello world&quot; // true
+  hello &gt; abc // true
+</code></pre>
+</section><section><h5 class="inline-h">String methods</h5>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/objects">
+Objects
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/numbers-and-math">
+Numbers and Math
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

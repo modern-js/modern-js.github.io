@@ -9,18 +9,21 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Data Structures</a>
       > Events
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Events</h1></section><section><h2>DOM Events</h2><p>DOM events represent interactions from the user or the browser APIs.</p>
-</section><section><h3>Listening for events</h3><pre><code class="lang-javascript">  const button = document.getElementById(&#39;btn1&#39;);
+      <section>
+        <h5 class="inline-h">
+            Events
+        </h5>
+</section><section><h5 class="inline-h">DOM Events</h5><p>DOM events represent interactions from the user or the browser APIs.</p>
+</section><section><h5 class="inline-h">Listening for events</h5><pre><code class="lang-javascript">  const button = document.getElementById(&#39;btn1&#39;);
 
   button.addEventListener(&#39;click&#39;, function (clickEvent) {
     console.log({ element: this, clickEvent });
   });
 </code></pre>
-</section><section><h3>Triggering Events</h3><pre><code class="lang-javascript">  const button = document.getElementById(&#39;btn1&#39;);
+</section><section><h5 class="inline-h">Triggering Events</h5><pre><code class="lang-javascript">  const button = document.getElementById(&#39;btn1&#39;);
 
   var aClick = new MouseEvent(&#39;click&#39;, {
     &#39;view&#39;: window,
@@ -30,7 +33,7 @@
 
   button.dispatchEvent(aClick);
 </code></pre>
-</section><section><h3>Event propagation / delegation</h3><p>Event bubbling means that event targeted at child nodes
+</section><section><h5 class="inline-h">Event propagation / delegation</h5><p>Event bubbling means that event targeted at child nodes
 will execute the event handlers of the chain of parent nodes.</p>
 <pre><code class="lang-html">  &lt;h1&gt;Select your favorite color:&lt;/h1&gt;
   &lt;ul id=&quot;colors&quot;&gt;
@@ -46,7 +49,7 @@ will execute the event handlers of the chain of parent nodes.</p>
       );
 &lt;/script&gt;
 </code></pre>
-</section><section><h2>Custom Events in Browser</h2><pre><code class="lang-javascript">  // Listening for events on a DOM element (e.g. document)
+</section><section><h5 class="inline-h">Custom Events in Browser</h5><pre><code class="lang-javascript">  // Listening for events on a DOM element (e.g. document)
   document.addEventListener(
     &#39;myCustomEvent&#39;,
     function ({ detail }) =&gt; console.log(detail)
@@ -60,7 +63,7 @@ will execute the event handlers of the chain of parent nodes.</p>
 
   document.dispatchEvent(myEvent);
 </code></pre>
-</section><section><h2>Events in NodeJS</h2><pre><code class="lang-javascript">  const EventEmitter = require(&#39;events&#39;).EventEmitter;
+</section><section><h5 class="inline-h">Events in NodeJS</h5><pre><code class="lang-javascript">  const EventEmitter = require(&#39;events&#39;).EventEmitter;
   const source = new EventEmitter();
 
   source.on(&#39;eventName&#39;, callback);
@@ -68,26 +71,26 @@ will execute the event handlers of the chain of parent nodes.</p>
 
   source.emit(&#39;eventName&#39;, payload);
 </code></pre>
-</section><section><h2>WebSockets</h2><pre><code class="lang-javascript">  websocket.on(&#39;connection&#39;, socket =&gt; {
+</section><section><h5 class="inline-h">WebSockets</h5><pre><code class="lang-javascript">  websocket.on(&#39;connection&#39;, socket =&gt; {
     socket.emit(&#39;hello&#39;);
     socket.on(&#39;message&#39;, console.log);
   });
 </code></pre>
-</section><section><h2>Patterns</h2><p>Events are a great mechanism to implement various patterns.</p>
-</section><section><h3>Fan-out</h3><p>An event with a single producer and multiple consumers.</p>
+</section><section><h5 class="inline-h">Patterns</h5><p>Events are a great mechanism to implement various patterns.</p>
+</section><section><h5 class="inline-h">Fan-out</h5><p>An event with a single producer and multiple consumers.</p>
 <pre><code class="lang-javascript">  // these can be defined in different parts of the system
   btn.on(&#39;click&#39;, updateUI);
   btn.on(&#39;click&#39;, updateDB);
   btn.on(&#39;click&#39;, logsAndMetrics);
 </code></pre>
-</section><section><h3>Fan-in</h3><p>An event with a multiple producers and (possibly) a single consumers.</p>
+</section><section><h5 class="inline-h">Fan-in</h5><p>An event with a multiple producers and (possibly) a single consumers.</p>
 <pre><code class="lang-javascript">  // multiple modules fire the same event
   lobby.emit(&#39;ready&#39;, player);
 
   //the lobby module pairs players in games
   lobby.on(&#39;ready&#39;, startWhenTwoPlayers);
 </code></pre>
-</section><section><h3>Pub/Sub</h3><p>An event with multiple topics. Events are a natural implementation of the pub/sub pattern.</p>
+</section><section><h5 class="inline-h">Pub/Sub</h5><p>An event with multiple topics. Events are a natural implementation of the pub/sub pattern.</p>
 <p>It allows us to decouple the producers and consumers (publishers and subscribers) of a messaging system.</p>
 <pre><code class="lang-javascript">  topics.on(&#39;new-items&#39;, handleMyMessage);
   topics.on(&#39;my-message&#39;, handleMyMessage);
@@ -96,7 +99,14 @@ will execute the event handlers of the chain of parent nodes.</p>
   topics.emit()
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/data-structures">
+Data Structures
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

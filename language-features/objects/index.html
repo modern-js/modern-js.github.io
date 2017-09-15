@@ -9,17 +9,20 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Objects
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Objects</h1></section><section><h2>Creating Objects</h2><ul>
+      <section>
+        <h5 class="inline-h">
+            Objects
+        </h5>
+</section><section><h5 class="inline-h">Creating Objects</h5><ul>
 <li><code>{} /* object literal */</code></li>
 <li><code>new Constructor()</code></li>
 <li><code>Object.create(prototype)</code></li>
 <li><code>Factory pattern</code></li>
 </ul>
-</section><section><h3>Object literals</h3><p>ES6 introduces a new property shorthand.
+</section><section><h5 class="inline-h">Object literals</h5><p>ES6 introduces a new property shorthand.
 In the example below, the <code>hobby</code> variable is used
 as a property of the <code>person</code> object.</p>
 <pre><code class="lang-javascript">  const hobby = &#39;juggling&#39;;
@@ -29,7 +32,7 @@ as a property of the <code>person</code> object.</p>
     age: 30,
   };
 </code></pre>
-</section><section><h3>The new operator</h3><p>The <code>constructor</code> function sets the properties of the new object.</p>
+</section><section><h5 class="inline-h">The new operator</h5><p>The <code>constructor</code> function sets the properties of the new object.</p>
 <p>The prototype of the new object is set
 to the value of the constructor function&#39;s prototype property.</p>
 <pre><code class="lang-javascript">  //constructor function
@@ -47,7 +50,7 @@ to the value of the constructor function&#39;s prototype property.</p>
 
   rect1.constructor; // the Rect function
 </code></pre>
-</section><section><h3>Object.create</h3><p>Creates objects with the specified prototype.</p>
+</section><section><h5 class="inline-h">Object.create</h5><p>Creates objects with the specified prototype.</p>
 <pre><code class="lang-javascript">  const rect1 = Object.create({
     getArea() { return this.a * this.b; }
   });
@@ -56,7 +59,7 @@ to the value of the constructor function&#39;s prototype property.</p>
   rect1.b = 6;
   rect1.getArea(); // 30
 </code></pre>
-</section><section><h2>Methods</h2><p>A method is a function that is used as a property of an object.
+</section><section><h5 class="inline-h">Methods</h5><p>A method is a function that is used as a property of an object.
 ES6 introduces a new shorthand for defining methods.
 In the below example <code>es5Method</code> and <code>es6Method</code> are equivalent.
 However <code>arrowNotAMethod</code> is different because of its <code>this</code> argument.</p>
@@ -66,7 +69,7 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
     arrowNotAMethod: () =&gt; {}
   }
 </code></pre>
-</section><section><h2>Properties</h2><p>ES6 introduces dynamic property keys using bracket <code>[]</code> syntax.
+</section><section><h5 class="inline-h">Properties</h5><p>ES6 introduces dynamic property keys using bracket <code>[]</code> syntax.
 <em>Remember:</em> all object keys are strings</p>
 <pre><code class="lang-javascript">  const getC = () =&gt; &#39;c&#39;;
   const object = {
@@ -75,7 +78,7 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
     [getC()]: 3,
   }
 </code></pre>
-</section><section><h3>Property descriptors</h3><p>Properties are themselves objects with special flags.</p>
+</section><section><h5 class="inline-h">Property descriptors</h5><p>Properties are themselves objects with special flags.</p>
 <ul>
 <li>configurable: property cannot be removed</li>
 <li>enumerable: property is not listed</li>
@@ -94,7 +97,7 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
     }, //...
   }
 </code></pre>
-</section><section><h3>Defining properties</h3><p>You can set these special flags when defining properties.</p>
+</section><section><h5 class="inline-h">Defining properties</h5><p>You can set these special flags when defining properties.</p>
 <pre><code class="lang-javascript">  Object.defineProperty(
     myObject, &#39;newKey&#39;, { writable: false, value: 42 }
   );
@@ -106,7 +109,7 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
       &#39;newKey_2&#39;: { configurable: false, value: &#39;here to stay&#39;}
   });
 </code></pre>
-</section><section><h3>Getters and Setters</h3><p>Properties that execute a <code>get</code> function when the property is accessed and a <code>set</code> function when it is assigned a value.</p>
+</section><section><h5 class="inline-h">Getters and Setters</h5><p>Properties that execute a <code>get</code> function when the property is accessed and a <code>set</code> function when it is assigned a value.</p>
 <p><em>Anti-Pattern</em> This should be used carefully. It creates side effects that are hard to detect and reason about.</p>
 <pre><code class="lang-javascript">  const thermometer = Object.defineProperty(
     { c: 22 }, &#39;f&#39;, {
@@ -118,35 +121,35 @@ However <code>arrowNotAMethod</code> is different because of its <code>this</cod
   thermometer.f = 100
   thermometer.c // 37.7
 </code></pre>
-</section><section><h2>The <code>Object</code> object</h2><p><code>Object</code> has many useful methods and properties.</p>
+</section><section><h5 class="inline-h">The <code>Object</code> object</h5><p><code>Object</code> has many useful methods and properties.</p>
 <p>Almost all object inherit from <code>Object.prototype</code>.</p>
-</section><section><h2>Object.keys|values()</h2><p>Get an array of the names of all enumerable properties of an object.</p>
+</section><section><h5 class="inline-h">Object.keys|values()</h5><p>Get an array of the names of all enumerable properties of an object.</p>
 <pre><code class="lang-javascript">  const myProperties = Object.keys(myObject);
 </code></pre>
 <p>Get an array of the values of the properties of an object.</p>
 <pre><code class="lang-javascript">  const myValues = Object.values(myValues);
 </code></pre>
-</section><section><h3>Object.assign()</h3><p>Creates a new object containing all the properties of the
+</section><section><h5 class="inline-h">Object.assign()</h5><p>Creates a new object containing all the properties of the
 <code>defaultData</code> and <code>userData</code> objects (users override defaults).</p>
 <pre><code class="lang-javascript">  const fullData = Object.assign({}, defaultData, userData);
 
   // alternatively use the object spread draft specification
   const fullData = { ...defaultData, ...userData };
 </code></pre>
-</section><section><h3>Object.preventExtensions()</h3><p>Objects also have special flags attached to them.</p>
+</section><section><h5 class="inline-h">Object.preventExtensions()</h5><p>Objects also have special flags attached to them.</p>
 <p>Disallow adding new properties to an object.</p>
 <pre><code class="lang-javascript">  const pointA = Object.preventExtensions({ x: 0, y: 0 });
   pointA.x = 15; // no problem
   pointA.z = 0; // throws or fails silently
   delete pointA.y; // success, but now it&#39;s a 1d point...
 </code></pre>
-</section><section><h3>Object.seal()</h3><p>Disallow adding or removing properties.</p>
+</section><section><h5 class="inline-h">Object.seal()</h5><p>Disallow adding or removing properties.</p>
 <pre><code class="lang-javascript">  const pointB = Object.seal({ x: 0, y: 0 });
   pointB.x = 15; // no problem
   pointB.z = 0; // throws or fails silently
   delete pointB.y; // throws or fails silently
 </code></pre>
-</section><section><h3>Object.freeze()</h3><p>Make an object immutable.
+</section><section><h5 class="inline-h">Object.freeze()</h5><p>Make an object immutable.
 Disallow adding / removing properties,
 or changing their values.</p>
 <pre><code class="lang-javascript">  const pointC = Object.freeze({ x: 0, y: 0 });
@@ -154,7 +157,7 @@ or changing their values.</p>
   pointC.z = 0; // throws or fails silently
   delete pointC.y; // throws or fails silently
 </code></pre>
-</section><section><h3>Inspect an object</h3><p>There are corresponding function that check if an object is frozen, sealed
+</section><section><h5 class="inline-h">Inspect an object</h5><p>There are corresponding function that check if an object is frozen, sealed
 or has disabled extensions.</p>
 <pre><code class="lang-javascript">  Object.isExtensible(pointA) // false
   Object.isExtensible(pointB) // false
@@ -168,8 +171,8 @@ or has disabled extensions.</p>
   Object.isFrozen(pointB) // false
   Object.isFrozen(pointC) // true
 </code></pre>
-</section><section><h2>Prototypical inheritance</h2><p>See <a href="../prototypes/" >Prototypes</a></p>
-</section><section><h2>Patterns</h2></section><section><h3>Factory function</h3><pre><code class="lang-javascript">  function createTaxi(car, driver) {
+</section><section><h5 class="inline-h">Prototypical inheritance</h5><p>See <a href="../prototypes/" >Prototypes</a></p>
+</section><section><h5 class="inline-h">Patterns</h5></section><section><h5 class="inline-h">Factory function</h5><pre><code class="lang-javascript">  function createTaxi(car, driver) {
     // use any object creation technique
     const taxi = {
       car,
@@ -183,7 +186,7 @@ or has disabled extensions.</p>
     return taxi;
   }
 </code></pre>
-</section><section><h3>Dictionary / Lookup</h3><pre><code class="lang-javascript">  const translations = {
+</section><section><h5 class="inline-h">Dictionary / Lookup</h5><pre><code class="lang-javascript">  const translations = {
     en: &#39;Hello&#39;,
     bg: &#39;Здравейте&#39;
   };
@@ -193,7 +196,17 @@ or has disabled extensions.</p>
   );
 </code></pre>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/arrays">
+Arrays
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/strings">
+Strings
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

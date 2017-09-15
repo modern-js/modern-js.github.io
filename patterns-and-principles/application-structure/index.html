@@ -9,11 +9,14 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Patterns and Principles</a>
       > Application structure
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Application structure</h1></section><section><h2>Organized by technical type</h2><pre><code>src/models
+      <section>
+        <h5 class="inline-h">
+            Application structure
+        </h5>
+</section><section><h5 class="inline-h">Organized by technical type</h5><pre><code>src/models
   - user-model.js
   - payment-model.js
 src/views
@@ -26,13 +29,13 @@ test/views/
 test/controllers
 
 documentation/
-</code></pre></section><section><h3>By technical type: Pros and Cons</h3><ul>
+</code></pre></section><section><h5 class="inline-h">By technical type: Pros and Cons</h5><ul>
 <li>Number of directories is constant</li>
 <li>All directories grows with the addition of new modules</li>
 <li>Top level view of frame-work, not intent</li>
 <li>Modules are spread across multiple directories</li>
 </ul>
-</section><section><h2>Organized by business function</h2><pre><code>src/users
+</section><section><h5 class="inline-h">Organized by business function</h5><pre><code>src/users
   - api-client.js
   - component.js
   - tests.js
@@ -40,17 +43,24 @@ documentation/
   - config.json
 src/orders
 src/payments
-</code></pre></section><section><h3>By business function: Pros and Cons</h3><ul>
+</code></pre></section><section><h5 class="inline-h">By business function: Pros and Cons</h5><ul>
 <li>Each module includes its code, tests, documentation and configuration</li>
 <li>Number of files per directory is constant</li>
 <li>Number of directories grows with the number of business modules</li>
 <li>Each module is potentially independent</li>
 </ul>
-</section><section><h2>Links</h2><ul>
+</section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="https://blog.codeminer42.com/nodejs-and-good-practices-354e7d763626" target="_blank">Best practices article</a></li>
 </ul>
 
-</div>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/patterns-and-principles/components">
+Component principles
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

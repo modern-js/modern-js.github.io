@@ -9,19 +9,22 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Language Features</a>
       > Arrays
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Arrays</h1><p>Arrays are objects with their prototype set to <code>Array.prototype</code>.</p>
-</section><section><h2>Array literals</h2><pre><code class="lang-javascript">  const emptyArray = [];
+      <section>
+        <h5 class="inline-h">
+            Arrays
+        </h5>
+<p>Arrays are objects with their prototype set to <code>Array.prototype</code>.</p>
+</section><section><h5 class="inline-h">Array literals</h5><pre><code class="lang-javascript">  const emptyArray = [];
   const numbers = [&#39;one&#39;, 2, { three: true }];
 </code></pre>
 <p>Notice each array is a separate object</p>
 <pre><code class="lang-javascript">  [] === [] // false
   [1, 2, 3] === [1, 2, 3] // false
 </code></pre>
-</section><section><h2>Array length</h2><p>The length property contains the largest index of the array plus one.</p>
+</section><section><h5 class="inline-h">Array length</h5><p>The length property contains the largest index of the array plus one.</p>
 <pre><code class="lang-javascript">  const arr = [];
   arr.length // 0
 
@@ -30,7 +33,7 @@
 
   arr // 5 empty slots, 6
 </code></pre>
-</section><section><h2>Checking if something is an array</h2><pre><code class="lang-javascript">  const arr = [];
+</section><section><h5 class="inline-h">Checking if something is an array</h5><pre><code class="lang-javascript">  const arr = [];
 
   // the typeof operator has no notion of arrays
   typeof arr // &quot;object&quot;
@@ -38,56 +41,66 @@
   // use Array.isArray instead
   Array.isArray(arr) // true
 </code></pre>
-</section><section><h2>Array methods</h2><p>There a lot of useful methods that arrays inherit from <code>Array.prototype</code>.</p>
-</section><section><h3>push</h3><p>Add an element to the end of an array.</p>
+</section><section><h5 class="inline-h">Array methods</h5><p>There a lot of useful methods that arrays inherit from <code>Array.prototype</code>.</p>
+</section><section><h5 class="inline-h">push</h5><p>Add an element to the end of an array.</p>
 <pre><code class="lang-javascript">  array.push(newElement);
 </code></pre>
-</section><section><h3>pop</h3><p>Remove and return the last element of the array</p>
+</section><section><h5 class="inline-h">pop</h5><p>Remove and return the last element of the array</p>
 <pre><code class="lang-javascript">  let lastElement = array.pop();
 </code></pre>
-</section><section><h3>join</h3><p>Returns a string combining all elements with the given delimiter.</p>
+</section><section><h5 class="inline-h">join</h5><p>Returns a string combining all elements with the given delimiter.</p>
 <pre><code class="lang-javascript">  [&#39;hello&#39;, &#39;crazy&#39;, &#39;world&#39;].join(&#39;! &#39;);
   // returns &quot;hello! crazy! world&quot;
 </code></pre>
-</section><section><h3>concat</h3><p>Retruns a new array containing all the given values.</p>
+</section><section><h5 class="inline-h">concat</h5><p>Retruns a new array containing all the given values.</p>
 <pre><code class="lang-javascript">  [1, 2, 3].concat([4, 5]); // returns [1, 2, 3, 4, 5]
 </code></pre>
-</section><section><h3>slice</h3><p>Return a copy of a sub array,
+</section><section><h5 class="inline-h">slice</h5><p>Return a copy of a sub array,
 starting from the given index and having the given length</p>
 <pre><code class="lang-javascript">  const numbers = [1, 2, 3, 4, 5];
   numbers.slice(0,2); // returns [1, 2];
 </code></pre>
-</section><section><h3>splice</h3><p>Modifies the given array:
+</section><section><h5 class="inline-h">splice</h5><p>Modifies the given array:
 adding, removing or replacing elements</p>
 <pre><code class="lang-javascript">  const numbers = [1, 2, 3, 4, 5];
   const fourAndFive = numbers.splice(3, 2);
   // fourAndFive = [4, 5];
   // numbers = [1, 2, 3];
 </code></pre>
-</section><section><h3>forEach</h3><p>Execute the given function on each element of the array.</p>
+</section><section><h5 class="inline-h">forEach</h5><p>Execute the given function on each element of the array.</p>
 <pre><code class="lang-javascript">  array.forEach((el) =&gt; console.log(el));
 </code></pre>
-</section><section><h3>some</h3><p>Returns true if any of the elements satisfy the condition function</p>
+</section><section><h5 class="inline-h">some</h5><p>Returns true if any of the elements satisfy the condition function</p>
 <pre><code class="lang-javascript">[1, 2, 3, 4, 5].some(number =&gt; number % 2); // returns true
 </code></pre>
-</section><section><h3>every</h3><p>Returns true if all the elements satisfy the predicate</p>
+</section><section><h5 class="inline-h">every</h5><p>Returns true if all the elements satisfy the predicate</p>
 <pre><code class="lang-javascript">[1, 2, 3, 4, 5].some(number =&gt; number % 2); // returns false
 </code></pre>
-</section><section><h3>filter</h3><p>Apply the given function to each element of the array.
+</section><section><h5 class="inline-h">filter</h5><p>Apply the given function to each element of the array.
 If the function returns true, the value is added to the new results array.</p>
 <pre><code class="lang-javascript">  const evenOnly = [1, 2, 3, 4, 5].filter(number =&gt; number % 2);
 </code></pre>
-</section><section><h3>map</h3><p>Returns an array of the result of applying
+</section><section><h5 class="inline-h">map</h5><p>Returns an array of the result of applying
 the given function to each element of the array.</p>
 <pre><code class="lang-javascript">  const doubled = [1, 2, 3, 4, 5].map(number =&gt; number * 2);
   // returns [2, 4, 6, 8, 10]
 </code></pre>
-</section><section><h3>reduce</h3><p>Accumulate a result by applying the given function to each element.</p>
+</section><section><h5 class="inline-h">reduce</h5><p>Accumulate a result by applying the given function to each element.</p>
 <pre><code class="lang-javascript">  const summed = [1, 2, 3, 4, 5]
     .reduce((result, number) =&gt; result + number, 0); // 15
 </code></pre>
-</section><section><h2>Typed arrays</h2>
-</div>
+</section><section><h5 class="inline-h">Typed arrays</h5>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/json">
+JSON
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/objects">
+Objects
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>

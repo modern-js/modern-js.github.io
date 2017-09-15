@@ -9,30 +9,43 @@
       <a href="/">INF310: Modern JS, Fall 2017</a>
           > <a href="../">Data Structures</a>
       > Observables
-      <a id="back-link" href="../">Back</a>
   </header>
   <div class="reveal">
     <div class="slides">
-</section><section><h1>Observables</h1></section><section><h2>Push/Pull</h2></section><section><h3>Events are a push mechanism.</h3><p>The consumer <code>handleEvent</code> is just a callback.
+      <section>
+        <h5 class="inline-h">
+            Observables
+        </h5>
+</section><section><h5 class="inline-h">Push/Pull</h5></section><section><h5 class="inline-h">Events are a push mechanism.</h5><p>The consumer <code>handleEvent</code> is just a callback.
 We have no guarantees when or how many times it would be called. The producer has full control.</p>
 <pre><code class="lang-javascript">  producer.on(&#39;event&#39;, handleEvent);
 </code></pre>
-</section><section><h3>Generators are a pull mechanism.</h3><p>The consumer requests data from the producer through the <code>next</code> method. The producer has no control over when the data is handled.</p>
+</section><section><h5 class="inline-h">Generators are a pull mechanism.</h5><p>The consumer requests data from the producer through the <code>next</code> method. The producer has no control over when the data is handled.</p>
 <pre><code class="lang-javascript">  function* producer() { /*...*/ };
 
   const consumer = producer();
   const dataPoint1 = consumer.next(); // { value, done }
   const dataPoint2 = consumer.next(); // { value, done }
 </code></pre>
-</section><section><h2>Observables</h2><pre><code class="lang-javascript">  const observable = Observable.from(event);
+</section><section><h5 class="inline-h">Observables</h5><pre><code class="lang-javascript">  const observable = Observable.from(event);
   const subscription = observable.subscribe({
     next(value) { },
     error(error) { },
     done() { }
   });
 </code></pre>
-</section><section><h2>Composability</h2>
-</div>
+</section><section><h5 class="inline-h">Composability</h5>
+</section>
+<section><ul>
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/data-structures/promises">
+Promises
+  </a></li>
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/data-structures/maps-and-sets">
+Maps and sets
+  </a></li>
+      </ul>
+    </section>
+  </div>
 </div>
 <script src="/build/index.js"></script>
 <script>
