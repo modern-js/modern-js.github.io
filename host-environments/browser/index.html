@@ -28,11 +28,11 @@
 <pre><code class="lang-javascript">  const element = document.querySelector(&#39;#byId&#39;);
   const elements = document.querySelectorAll(&#39;.byClassName&#39;);
 </code></pre>
-<pre><code class="lang-javascript">  element.addEventListener(&#39;eventName&#39;, function () {
+<pre><code class="lang-javascript">  element.addEventListener(&#39;eventName&#39;, function (event) {
     // handle each event e.g. click
   });
 </code></pre>
-</section><section><h5 class="inline-h">&nbsp;</h5><p><em>Anti-Pattern</em></p>
+</section><section><h5 class="inline-h">Rendering DOM elements</h5><p><em>Anti-Pattern</em></p>
 <pre><code class="lang-javascript">  /* !!! THIS IS BAD CODE!!! */
   document.write(&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;);
 </code></pre>
@@ -51,7 +51,31 @@
   sessionStorage.getItem(&#39;username&#39;);
   sessionStorage.setItem(&#39;username&#39;, &#39;Gosho&#39;);
 </code></pre>
-</section><section><h5 class="inline-h">User Media</h5></section><section><h5 class="inline-h">Service Workers</h5></section><section><h5 class="inline-h">Links</h5><ul>
+</section><section><h5 class="inline-h">Geo Location</h5><pre><code class="lang-javascript">  navigator.geolocation.getCurrentPosition(
+    position =&gt; console.log(position),
+    error =&gt; console.error(error),
+    {
+      enableHighAccuracy: true
+    }
+  );
+</code></pre>
+</section><section><h5 class="inline-h">Fetch</h5><pre><code class="lang-javascript">  fetch(&#39;http://my.server/data.json&#39;)
+    .then(response =&gt; (response.ok ?
+      response.json() : Promise.reject(&#39;bad response&#39;)))
+    .then(data =&gt; handleData(data));
+</code></pre>
+</section><section><h5 class="inline-h">Web Audio API</h5><pre><code class="lang-javascript">  const context = new AudioContext();
+  const oscillator = context.createOscillator();
+
+  oscillator.connect(context.destination);
+  oscillator.start(0);
+
+  oscillator.frequency.value = 8800;
+</code></pre>
+</section><section><h5 class="inline-h">Canvas / WebGL</h5><ul>
+<li><a href="http://www.jugglesaver.co.uk/juggle/webgl.html" target="_blank">WebGL Juggler</a></li>
+</ul>
+</section><section><h5 class="inline-h">User Media</h5></section><section><h5 class="inline-h">Service Worker</h5></section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="https://kangax.github.io/compat-table/es6/" target="_blank">Browsers language support</a></li>
 </ul>
 

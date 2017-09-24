@@ -16,15 +16,77 @@
         <h5 class="inline-h">
             NodeJS
         </h5>
-</section><section><h5 class="inline-h">Built-in modules</h5></section><section><h5 class="inline-h">http</h5><pre><code class="lang-javascript">  import { createServer } from &#39;http&#39;;
+<ul>
+<li>server side javascript environment</li>
+<li>runs on top of google V8 and libUV</li>
+<li>offers many capabilities</li>
+</ul>
+</section><section><h5 class="inline-h">CommonJS Modules</h5><p>Defining modules</p>
+<pre><code class="lang-javascript">  // module exports can be any type of value:  
+  module.exports = { doStuff() }; // - objects
+  module.exports = function (options) {} // - function
 
-  const server = createServer(
-    (req, res) =&gt; res.end(&#39;hello world!&#39;)
-  );
-
-  server.listen(7212);
+  // by default module.exports is set to an empty object
+  module.exports // {}
 </code></pre>
-</section><section><h5 class="inline-h">fs</h5><pre><code class="lang-javascript">  import fs from &#39;fs&#39;;
+<p>Using modules:</p>
+<pre><code class="lang-javascript">  // built-in or npm installed
+  const lib = require(&#39;lib&#39;);
+
+  // local file
+  const myLib = require(&#39;./myLib&#39;);
+</code></pre>
+</section><section><h5 class="inline-h">Built-in modules</h5><ul>
+<li>process</li>
+<li>fs</li>
+<li>http</li>
+<li><a href="https://nodejs.org/api" target="_blank">and many more</a></li>
+</ul>
+</section><section><h5 class="inline-h">Process</h5><ul>
+<li>The process module provides:</li>
+<li>access to environment variables</li>
+<li>access to command line arguments</li>
+<li>access to build-time node and v8 flags</li>
+<li>messaging with other processes</li>
+<li>handling process level events</li>
+</ul>
+</section><section><h5 class="inline-h">Environment variables</h5><pre><code class="lang-javascript">  process.env
+  // returns an object holding all environment variables
+
+  process.env.MY_VAR // read the value of MY_VAR
+
+  process.env.MY_VAR = &#39;new value&#39;;
+  // the new value is not reflected outside of the process
+</code></pre>
+</section><section><h5 class="inline-h">Reading process arguments</h5><pre><code class="lang-bash">  node script.js param1 param2=value
+</code></pre>
+<pre><code class="lang-javascript">  process.argv.forEach(
+    (index, value) =&gt; console.log(`${index}: ${value}`);
+  );
+  /*
+    0: /path/to/node
+    1: /path/to/script.js
+    2: param1
+    3: param2=value
+  */
+</code></pre>
+</section><section><h5 class="inline-h">FS</h5><ul>
+<li><code>fs</code> provides file system capabilities:</li>
+<li>reading and writing to files, sockets and buffers</li>
+<li>reading and changing file permissions and stats</li>
+<li>creating and deleting directories and links</li>
+</ul>
+</section><section><h5 class="inline-h">File Stats</h5><pre><code class="lang-javascript">  fs.stat(&#39;poem.txt&#39;, (error, data) =&gt; {
+    if (error) {
+      return console.error(error);
+    }
+
+    data.isFile() // true
+    data.isDirectory() // false
+    data.size // 311 (bytes)
+  });
+</code></pre>
+</section><section><h5 class="inline-h">Reading a file</h5><pre><code class="lang-javascript">  const fs = require(&#39;fs&#39;);
 
   fs.readFile(&#39;./poem.txt&#39;, (error, file) =&gt; {
     if (error) {
@@ -34,15 +96,48 @@
     console.log(file.contents);
   });
 </code></pre>
-</section><section><h5 class="inline-h">streams</h5><p>See <a href="../../data-structures/streams/" >Streams</a></p>
+</section><section><h5 class="inline-h">Writing a file</h5><pre><code class="lang-javascript">  const fs = require(&#39;fs&#39;);
+
+  fs.writeFile(
+    &#39;file.name&#39;,
+    &#39;content&#39;,
+    (error) =&gt; console.error(error)
+  );
+</code></pre>
+</section><section><h5 class="inline-h">HTTP / HTTPS</h5><ul>
+<li>provides HTTP networking capabilities:</li>
+<li>making requests</li>
+<li>creating servers</li>
+</ul>
+</section><section><h5 class="inline-h">Making an http request (http)</h5><pre><code class="lang-javascript">  const http = require(&#39;http&#39;);
+  http.request(&quot;https://google.com&quot;, (res) =&gt; {
+    res.on(&#39;error&#39;, error =&gt; console.error(error.message));
+
+    const buffer = [];
+    res.on(&#39;data&#39;, data =&gt; buffer.push(data));
+
+    res.on(&#39;end&#39;, () =&gt; console.log(buffer));
+  }).end();
+</code></pre>
+</section><section><h5 class="inline-h">Creating a server (http)</h5><pre><code class="lang-javascript">  const http = require(&#39;http&#39;);
+
+  const server = http.createServer(
+    (req, res) =&gt; res.end(&#39;hello world!&#39;)
+  );
+
+  server.listen(7212);
+</code></pre>
+</section><section><h5 class="inline-h">Streams</h5><p>See <a href="../../data-structures/streams/" >Streams</a></p>
 </section><section><h5 class="inline-h">NPM modules</h5><p>See <a href="../../development-tools/npm/" >npm</a></p>
 </section><section><h5 class="inline-h">Express JS</h5><p>See <a href="../../frameworks-and-libraries/express/" >express</a></p>
-</section><section><h5 class="inline-h">using APIs</h5><pre><code class="lang-javascript">  import fetch from &#39;node-fetch&#39;;
+</section><section><h5 class="inline-h">using APIs</h5><pre><code class="lang-javascript">  const fetch = require(&#39;node-fetch&#39;);
 
   fetch(&#39;https://api.github.com/orgs/modern-js/members&#39;)
     .then(response =&gt; response.ok ?
       response.json() : Promise.reject())
-    .then(members =&gt; members.map(member =&gt; fetch(member.url)))
+    .then(members =&gt; Promise.all(
+      members.map(member =&gt; fetch(member.url))
+    ));
 </code></pre>
 </section><section><h5 class="inline-h">using databases</h5></section><section><h5 class="inline-h">using amqp / kafka</h5></section><section><h5 class="inline-h">Links</h5><ul>
 <li><a href="http://node.green/" target="_blank">NodeJS language support</a></li>

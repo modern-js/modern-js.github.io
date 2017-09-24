@@ -16,7 +16,44 @@
         <h5 class="inline-h">
             npm
         </h5>
-</section><section><h5 class="inline-h">npm init</h5></section><section><h5 class="inline-h">package.json</h5></section><section><h5 class="inline-h">npm install</h5></section><section><h5 class="inline-h">npm ls</h5></section><section><h5 class="inline-h">semantic versions</h5>
+<ul>
+<li>package management tools</li>
+<li>managing dependencies</li>
+<li>running tasks</li>
+<li>publishing packages</li>
+</ul>
+</section><section><h5 class="inline-h">npm init</h5><pre><code class="lang-bash">  npm init -y
+</code></pre>
+<p>creates a new <code>package.json</code> file</p>
+</section><section><h5 class="inline-h">package.json</h5><pre><code class="lang-json">  {
+    &quot;name&quot;: &quot;my-project&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;dependencies&quot;: {
+      &quot;node-fetch&quot;: &quot;^3.1.4&quot;
+    },
+    &quot;devDependencies&quot;: {
+      &quot;chai&quot;: &quot;&quot;,
+    }
+  }
+</code></pre>
+</section><section><h5 class="inline-h">npm install</h5><pre><code class="lang-bash">  npm i -S package1 package2
+</code></pre>
+<p>will download and install the given packages
+and save them as dependencies in your <code>package.json</code></p>
+<pre><code class="lang-bash">  npm i -D packageNames
+</code></pre>
+<p>will instead add the dependencies as <code>devDependencies</code></p>
+</section><section><h5 class="inline-h">npm ls</h5><pre><code class="lang-bash">  npm ls
+</code></pre>
+<p>will list all installed packages.
+Warns you for packages not present in your <code>package.json</code></p>
+</section><section><h5 class="inline-h">semantic versions</h5><p><code>major.minor.patch</code></p>
+<ul>
+<li>A major version change reflects a change in the public API of the module</li>
+<li>A minor version change reflects adding new functionality</li>
+<li>A patch version change reflects improvements, bug and security fixes</li>
+</ul>
+
 </section>
 <section><ul>
   <li><h5 class="inline-h">Next Topic:</h5><a href="/development-tools/static-analysis">

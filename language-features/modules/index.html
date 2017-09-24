@@ -16,14 +16,53 @@
         <h5 class="inline-h">
             Modules
         </h5>
-</section><section><h5 class="inline-h">Global scope</h5></section><section><h5 class="inline-h">Scripts</h5></section><section><h5 class="inline-h">CommonJS</h5></section><section><h5 class="inline-h">RequireJS</h5></section><section><h5 class="inline-h">ES Modules</h5></section><section><h5 class="inline-h">UMD</h5>
+</section><section><h5 class="inline-h">Scripts</h5><p>Loading code through a script tag
+grants that code full access to the global scope</p>
+<pre><code class="lang-html">  &lt;script src=&quot;anyscript.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    use(window.anythingValue);
+    window.youCan = &#39;override most globals&#39;;
+  &lt;/script&gt;
+</code></pre>
+</section><section><h5 class="inline-h">AMD</h5><p>Asynchronous Module Definition (requireJS)</p>
+<pre><code class="lang-javascript">define(&#39;moduleName&#39;, function (dependencies) {
+    return myPublicInterface;
+});
+
+require([modules], function (modules) {
+  use(modules);
+});
+</code></pre>
+</section><section><h5 class="inline-h">CommonJS</h5><p>Synchronous, node.js&#39;s native module system</p>
+<pre><code class="lang-javascript">  const myModule = require(&#39;moduleName&#39;);
+
+  module.exports = function (options) {}
+</code></pre>
+</section><section><h5 class="inline-h">ES6 Modules</h5><ul>
+<li>Modules are automatically in &quot;strict mode&quot;</li>
+<li>Provides only static module definition declarations</li>
+<li>Module loading is delegated to the host environment</li>
+</ul>
+<pre><code class="lang-javascript">  import createServer from &#39;http&#39;;
+
+  export default function startApp() {};
+</code></pre>
+</section><section><h5 class="inline-h">UMD</h5><ul>
+<li>UMD stands for Universal Module Definition</li>
+<li>Wraps your module so that it is acceptable to any type of module system</li>
+<li><a href="../../development-tools/task-runners/" >See Build tools</a></li>
+</ul>
+</section><section><h5 class="inline-h">Loaders</h5><ul>
+<li><a href="../../host-environments/code-loading/" >See Code loadering</a></li>
+</ul>
+
 </section>
 <section><ul>
-  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features">
-Language features
+  <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/async-await">
+Async/Await
   </a></li>
-  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features/scopes">
-Scopes
+  <li><h5 class="inline-h">Previous Topic:</h5><a href="/language-features">
+Language features
   </a></li>
       </ul>
     </section>

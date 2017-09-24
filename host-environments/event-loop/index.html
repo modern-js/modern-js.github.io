@@ -16,17 +16,74 @@
         <h5 class="inline-h">
             Event loop
         </h5>
-</section><section><h5 class="inline-h">Timers</h5><pre><code class="lang-javascript">  const timeout = setTimeout(function () {}, milliseconds);
+<p><img src="/images/event-loop.jpg" alt="Event loop"></p>
+</section><section><h5 class="inline-h">Timers</h5><p><code>setTimeout</code> allow us to execute an action
+after (at least) the set period of time.</p>
+<pre><code class="lang-javascript">  const timeout = setTimeout(function action() {}, milliseconds);
+  // returns a timeout id that can be used to cancel the timer
   clearTimeout(timeout);
-
-  const interval = setInterval(function () {}, milliseconds);
+</code></pre>
+<p><code>setInterval</code> allows us to schedule an action to be executed
+periodically after at a given interval</p>
+<pre><code class="lang-javascript">  const interval = setInterval(function () {}, milliseconds);
+  // returns an interval id that can be used to cancel the timer
   clearInterval(interval);
 </code></pre>
-</section><section><h5 class="inline-h">Microtasks</h5><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;third&#39;), 0);
+</section><section><h5 class="inline-h">Microtasks</h5><p>Promises are resolved at the end of the current event loop task.
+The following code illustrates the order of execution.</p>
+<pre><code class="lang-javascript">  // add the given action at the end of the event queue
+  setTimeout(() =&gt; console.log(&#39;third&#39;), 0);
+
+  // resolve q promise and attach a handler
   Promise.resolve(&#39;second&#39;).then(console.log);
+
+  // execute some synchronous code
   console.log(&#39;first&#39;);
+
+  // first, second, third
 </code></pre>
-</section><section><h5 class="inline-h">Scheduling</h5>
+</section><section><h5 class="inline-h">Browser animation</h5><ul>
+<li>The browser calls your function when it&#39;s ready to redraw the screen.</li>
+<li>Optimized for both performance and power usage.</li>
+</ul>
+<pre><code class="lang-javascript">  window.requestAnimationFrame(
+    function draw() {
+      // ideally called around 60 times a second
+    }
+  );
+</code></pre>
+</section><section><h5 class="inline-h">Blocking the event loop</h5><p>If the current task falls into an infinite loop
+later tasks on the event queue will not be processed  </p>
+<pre><code class="lang-javascript">  const longSyncTask = () =&gt; {
+    while (true) {}
+  };
+
+  longSyncTask();
+</code></pre>
+</section><section><h5 class="inline-h">Blowing the stack</h5><p>Chaining too many function calls can lead
+to exceeding the size of the call stack.
+The following code will eventually throw an error.</p>
+<pre><code class="lang-javascript">  let b;
+  const a = { exec() { b.exec(); } };
+  b = { exec() { a.exec(); } };
+
+  a.exec();
+  // a calls b calls a calls b
+  // calls a calls b etc..
+</code></pre>
+</section><section><h5 class="inline-h">Chunking work on the event loop</h5><p>Split a long / heavy computation into
+multiple tasks on the event queue.
+Thus allowing the engine to process
+other events in between.</p>
+<pre><code class="lang-javascript">  const longAsyncTask = () =&gt; {
+    const workChuncks = [];
+    while (workChuncks.length &gt; 0) {
+      const nextTask = workChuncks.splice(0, 1)[0];
+      setTimeout(nextTask, deleyInMs);
+    }
+  }
+</code></pre>
+
 </section>
 <section><ul>
   <li><h5 class="inline-h">Next Topic:</h5><a href="/host-environments/gaming">

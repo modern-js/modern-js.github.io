@@ -22,7 +22,7 @@
 <p>Or handle the error if something goes wrong</p>
 <pre><code class="lang-javascript">  waitForAnswer().catch(handleError);
 </code></pre>
-</section><section><h5 class="inline-h">Chaining</h5><p>Each <code>then function</code> returns a new promise</p>
+</section><section><h5 class="inline-h">Chaining</h5><p>Each call of the <code>then</code> method returns a new promise</p>
 <pre><code class="lang-javascript">  getUserProfile()
     .then(profile =&gt; download(profile.image))
     .then(profileImage =&gt; applyEffects(profileImage))

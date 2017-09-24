@@ -19,18 +19,43 @@
 <p>JavaScript implements a prototype-based inheritance model.
 Each object has a special prototype field that points directly
 to another object (NOT a class).</p>
-</section><section><h5 class="inline-h">The hidden link</h5><p>An object literal has its prototype set to <code>Object.prototype</code></p>
-<pre><code class="lang-javascript">  Object.getPrototypeOf({ a: 1 }) === Object.prototype // true
+</section><section><h5 class="inline-h">The hidden link</h5><ul>
+<li>An object literal has its prototype set to <code>Object.prototype</code></li>
+<li>An array literal has its prototype set to <code>Array.prototype</code></li>
+</ul>
+<pre><code class="lang-javascript">  Object.getPrototypeOf(&quot;string&quot;) === String.prototype // true
+  Object.getPrototypeOf(12345678) === Number.prototype // true
+
+  Object.getPrototypeOf({ a: 1 }) === Object.prototype // true
   Object.getPrototypeOf([ 1, 2 ]) === Object.prototype // false
+
   Object.getPrototypeOf([ 1, 2 ]) === Array.prototype // true
-  Object.getPrototypeOf(Array.prototype) === Object.prototype
-  // true
 </code></pre>
-<p><code>Object.getPrototypeOf</code> should not be used in applications</p>
-</section><section><h5 class="inline-h">Prototype chain</h5><p>If a property is missing when looking for properties
-(using the <code>.</code> or <code>[]</code> syntax), the engine will
-search for it down the prototype chain.</p>
-</section><section><h5 class="inline-h">Objects without classes</h5></section><section><h5 class="inline-h">Runtime dynamic prototypes</h5><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
+<p><code>Object.getPrototypeOf</code> should not be used in application code</p>
+</section><section><h5 class="inline-h">Prototype chain</h5><pre><code class="lang-javascript">Object.getPrototypeOf([]) === Array.prototype
+// true
+
+Object.getPrototypeOf(Array.prototype) === Object.prototype
+// true
+
+Object.getPrototypeOf(Object.prototype)
+// null
+</code></pre>
+</section><section><h5 class="inline-h">Property access</h5><ul>
+<li>If a property is missing when using the <code>.</code> or <code>[]</code> syntax,
+the engine will search for it down the prototype chain.</li>
+<li>Overwriting the value of a missing property, creates that property
+on the target object, without modifying the prototype.</li>
+</ul>
+<pre><code class="lang-javascript">  const a = { x: 50 };
+  const b = Object.create(a);
+
+  b.x // 50
+
+  b.x = 100;
+  a.x // 50
+</code></pre>
+</section><section><h5 class="inline-h">Runtime dynamic prototypes</h5><p>Prototypes are alive! Changing the prototype changes what inheriting objects see.</p>
 <pre><code class="lang-javascript">  const protoPerson = {
     sayHi() { return `Hi, I&#39;m ${this.name}`}
   };

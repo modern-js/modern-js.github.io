@@ -16,7 +16,31 @@
         <h5 class="inline-h">
             Code loading
         </h5>
-</section><section><h5 class="inline-h">Script tag</h5></section><section><h5 class="inline-h">CommonJS</h5></section><section><h5 class="inline-h">Module loaders</h5>
+</section><section><h5 class="inline-h">CommonJS</h5><ul>
+<li>modules can be specified dynamically</li>
+<li>modules are resolved locally<ul>
+<li>path modules are resolved by local paths</li>
+<li>global modules resolve through <code>node_modules</code></li>
+</ul>
+</li>
+<li>modules are loaded and executed synchronously</li>
+<li>modules have their own global scope</li>
+</ul>
+</section><section><h5 class="inline-h">Script tag</h5><ul>
+<li>scripts are resolved through urls</li>
+<li>script tags can be created dynamically</li>
+<li>loading is controlled through the <code>async</code> and <code>defer</code> attributes</li>
+<li>scripts share the <code>window</code> global scope</li>
+</ul>
+</section><section><h5 class="inline-h">Modules</h5><ul>
+<li>the <code>type=&quot;module&quot;</code> attribute changes the behavior of scripts</li>
+<li>native module loading is supported since node v8.5.0</li>
+<li><a href="../../language-features/modules/" >See Modules</a></li>
+</ul>
+</section><section><h5 class="inline-h">Module loaders</h5><ul>
+<li>Module loaders are a proposal for host environments can solve module resolution in an extensible manner</li>
+</ul>
+
 </section>
 <section><ul>
   <li><h5 class="inline-h">Next Topic:</h5><a href="/host-environments/engines">

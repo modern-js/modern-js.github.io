@@ -27,6 +27,8 @@
 Expressions are resolved at the point of definition.</p>
 <pre><code class="lang-javascript">  `back quote template literal with ${expressions}`
   // will throw if expressions is not defined
+
+  `&lt;a href=${item.getUrl()}&gt;${item.getLabel()}&lt;/a&gt;`
 </code></pre>
 </section><section><h5 class="inline-h">Properties Operators</h5><pre><code class="lang-javascript">  const abc = &#39;abcdefg&#39;;
   const hello = &#39;hello world&#39;;
@@ -41,7 +43,44 @@ Expressions are resolved at the point of definition.</p>
   hello === &quot;hello world&quot; // true
   hello &gt; abc // true
 </code></pre>
-</section><section><h5 class="inline-h">String methods</h5>
+</section><section><h5 class="inline-h">String methods</h5></section><section><h5 class="inline-h">Char access</h5><pre><code class="lang-javascript">  &quot;hello&quot;.charAt(0) // &quot;h&quot; ASCII
+  &quot;hello&quot;.charCodeAt() // 104 Unicode
+  &quot;hello&quot;.codePointAt(0) // 104 UTF-16
+</code></pre>
+</section><section><h5 class="inline-h">Containment predicates</h5><pre><code class="lang-javascript">  &quot;hello world&quot;.indexOf(&quot;hello&quot;) // 0
+  &quot;hello world&quot;.includes(&quot;hello&quot;) // true
+
+  &quot;hello world&quot;.indexOf(&quot;WORLD&quot;) // -1
+  &quot;hello world&quot;.includes(&quot;WORLD&quot;) // false
+
+  &quot;hello&quot;.startsWith(&#39;h&#39;) // true
+  &quot;hello&quot;.endsWith(&#39;o&#39;) // true
+</code></pre>
+</section><section><h5 class="inline-h">Split and concat</h5><pre><code class="lang-javascript">  &quot;hello&quot;.split(&#39;&#39;) // [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
+  &quot;split by word&quot;.split(&#39; &#39;) // [&#39;split&#39;, &#39;by&#39;, &#39;word&#39;]
+
+  &quot;hello&quot;.concat(&quot; world&quot;) // &quot;hello world&quot;
+</code></pre>
+</section><section><h5 class="inline-h">Substr vs Substring</h5><pre><code class="lang-javascript">  // substr(index, lenght)
+  &quot;hello world&quot;.substr(6, 5) // world
+
+  // substring(index, index)
+  &quot;hello world&quot;.substr(6, 11) // world
+</code></pre>
+</section><section><h5 class="inline-h">Replace</h5><pre><code class="lang-javascript">  // replaces only the first occurrence of the given string
+  &quot;hello BIRD BIRD&quot;.replace(&#39;BIRD&#39;, &#39;world&#39;) // &quot;hello world BIRD&quot;
+
+  // replaces all occurrences of the given string
+  &quot;hello BIRD BIRD&quot;.replace(/BIRD/g, &#39;world&#39;) // &quot;hello world world&quot;
+</code></pre>
+</section><section><h5 class="inline-h">Unicode</h5><pre><code class="lang-javascript">  &#39;👨‍👩‍👦&#39;.split(&#39;&#39;) // [ &#39;👨&#39;, &#39;👩&#39;, &#39;👦&#39; ]
+  &#39;👨&#39; + &#39;🏽&#39; === &quot;👨🏽&quot; // true
+</code></pre>
+</section><section><h5 class="inline-h">Links</h5><ul>
+<li>[<a href="http://2ality.com/2013/09/javascript-unicode.html" target="_blank">http://2ality.com/2013/09/javascript-unicode.html</a>]</li>
+<li>[<a href="http://speakingjs.com/es5/ch24.html" target="_blank">http://speakingjs.com/es5/ch24.html</a>]</li>
+</ul>
+
 </section>
 <section><ul>
   <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/objects">

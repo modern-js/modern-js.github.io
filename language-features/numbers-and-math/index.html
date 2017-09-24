@@ -16,7 +16,57 @@
         <h5 class="inline-h">
             Numbers and Math
         </h5>
-</section><section><h5 class="inline-h">The number type</h5></section><section><h5 class="inline-h">Number Functions</h5></section><section><h5 class="inline-h">Math functions</h5>
+</section><section><h5 class="inline-h">The number type</h5><p>All numbers in JavaScript are represented internally as 64-bit floating point</p>
+<pre><code class="lang-javascript">  1 === 1.0 // true
+</code></pre>
+</section><section><h5 class="inline-h">Number literals</h5><p>There are multiple ways to denote a number literal</p>
+<pre><code class="lang-javascript">  // hex literal
+  10 === 0xa // true
+
+  //octal literal
+  10 === 0o12 // true
+
+  //binary literal
+  10 === 0b1010 // true
+
+  // scientific notation
+  1000 === 10e2 // true
+</code></pre>
+</section><section><h5 class="inline-h">NaN</h5><p><code>NaN</code> stands for Not A Number and represents
+a failure to perform a mathematical operation.</p>
+<p>The result of any operation involving <code>NaN</code> will be <code>NaN</code></p>
+<pre><code class="lang-javascript">  typeof NaN // number
+
+  5 - &#39;string&#39; // NaN
+  NaN + 1 // NaN
+
+  NaN === NaN // false
+  NaN !== NaN // true
+
+  isNaN(NaN) // true
+  isNaN(&quot;abc&quot;) // true
+
+  Number.isNaN(NaN) // true
+  Number.isNaN(&quot;abc&quot;) // false
+</code></pre>
+<p>Use <code>Number.isNaN</code> instead of <code>isNaN</code></p>
+</section><section><h5 class="inline-h">Number Functions</h5></section><section><h5 class="inline-h">ParseInt</h5><p>Prefer <code>Number.parseInt</code> to the global <code>parseInt</code> function</p>
+<pre><code class="lang-javascript">  Number.parseInt(&quot;100&quot;, 2) // 4
+  Number.parseInt(&quot;100&quot;, 10) // 100
+  Number.parseInt(&quot;100&quot;, 16) // 256
+
+  Number.parseInt(&quot;100abc101&quot;, 10) // 100
+  Number.parseInt(&quot;abc&quot;, 10) // NaN
+</code></pre>
+</section><section><h5 class="inline-h">ParseFloat</h5><pre><code class="lang-javascript">  Numuber.parseFloat(&#39;3.14&#39;) // 3.14
+</code></pre>
+</section><section><h5 class="inline-h">Safely comparing fractions</h5><pre><code class="lang-javascript">  0.3 - (0.1 + 0.2) === 0 // false
+  0.3 - (0.1 + 0.2) &lt; Number.EPSILON // true
+</code></pre>
+</section><section><h5 class="inline-h">Math functions</h5></section><section><h5 class="inline-h">Links</h5><ul>
+<li><a href="http://2ality.com/2015/04/numbers-math-es6.html" target="_blank">new number features in ES6</a></li>
+</ul>
+
 </section>
 <section><ul>
   <li><h5 class="inline-h">Next Topic:</h5><a href="/language-features/strings">
