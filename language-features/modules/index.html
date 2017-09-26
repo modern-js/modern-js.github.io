@@ -24,24 +24,32 @@ grants that code full access to the global scope</p>
     window.youCan = &#39;override most globals&#39;;
   &lt;/script&gt;
 </code></pre>
-</section><section><h5 class="inline-h">AMD</h5><p>Asynchronous Module Definition (requireJS)</p>
-<pre><code class="lang-javascript">define(&#39;moduleName&#39;, function (dependencies) {
+</section><section><h5 class="inline-h">Asynchronous Module Definition (AMD)</h5><ul>
+<li>popular library: <a href="http://requirejs.org/" target="_blank">requireJS</a></li>
+<li>loads code through <code>script tags</code> or <code>require</code></li>
+<li>Requires a name to path / url configuration</li>
+<li>module code is &quot;isolated&quot; within its function scope</li>
+</ul>
+<pre><code class="lang-javascript">require([modules], function (modules) {
+  doStuffWith(modules);
+});
+
+define(&#39;moduleName&#39;, [dependencies], function (dependencies) {
     return myPublicInterface;
 });
-
-require([modules], function (modules) {
-  use(modules);
-});
 </code></pre>
-</section><section><h5 class="inline-h">CommonJS</h5><p>Synchronous, node.js&#39;s native module system</p>
+</section><section><h5 class="inline-h">CommonJS</h5><ul>
+<li>Node.js&#39;s native module system</li>
+<li>Synchronous and local code loading</li>
+</ul>
 <pre><code class="lang-javascript">  const myModule = require(&#39;moduleName&#39;);
 
-  module.exports = function (options) {}
+  module.exports = anyTypeOfValue;
 </code></pre>
 </section><section><h5 class="inline-h">ES6 Modules</h5><ul>
-<li>Modules are automatically in &quot;strict mode&quot;</li>
-<li>Provides only static module definition declarations</li>
+<li>Static module declarations only</li>
 <li>Module loading is delegated to the host environment</li>
+<li>Modules are automatically in &quot;strict mode&quot;</li>
 </ul>
 <pre><code class="lang-javascript">  import createServer from &#39;http&#39;;
 
@@ -49,11 +57,16 @@ require([modules], function (modules) {
 </code></pre>
 </section><section><h5 class="inline-h">UMD</h5><ul>
 <li>UMD stands for Universal Module Definition</li>
-<li>Wraps your module so that it is acceptable to any type of module system</li>
+<li>Wraps your module so that it is acceptable to any type of module system<ul>
+<li>Wrapper introduces size and runtime overhead</li>
+<li>Useful when publishing a library</li>
+</ul>
+</li>
 <li><a href="../../development-tools/task-runners/" >See Build tools</a></li>
 </ul>
-</section><section><h5 class="inline-h">Loaders</h5><ul>
-<li><a href="../../host-environments/code-loading/" >See Code loadering</a></li>
+</section><section><h5 class="inline-h">Links</h5><ul>
+<li>See <a href="../../host-environments/code-loading/" >Code loading</a></li>
+<li><a href="https://www.jvandemo.com/a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers/" target="_blank">Article about modules and code loading</a></li>
 </ul>
 
 </section>

@@ -16,55 +16,87 @@
         <h5 class="inline-h">
             Scopes
         </h5>
-</section><section><h5 class="inline-h">Block scope</h5><pre><code class="lang-javascript">  {
+</section><section><h5 class="inline-h">Block scope</h5><pre><code class="lang-javascript">  let i = 100;
+  {
     var x = 5;
     let y = 10;
     const z = 15;
   }
 
+  i // 100
   x // 5
   y // throws an Error
   z // throws an Error
 </code></pre>
 </section><section><h5 class="inline-h">Function scope</h5><pre><code class="lang-javascript">function f() {
-  var x = 5;
+  // var x is hoisted
+  doSomeStuff(x); // x is undefined
 
-  // x is accessible everywhere in the function
+  var x = 5;
+  // but the assignment happens at the
+  // original place in the code
 }
+
+// accessing x outside the function
+x // throws an Error
 </code></pre>
-</section><section><h5 class="inline-h">Lexical scope (Closure)</h5><pre><code class="lang-javascript">  const greeting = &#39;Hi&#39;;
+</section><section><h5 class="inline-h">Lexical scope (Closure)</h5><p>Functions hold a reference to the scope
+they are defined in.</p>
+<p>&quot;Module&quot; A:</p>
+<pre><code class="lang-javascript">  const greeting = &#39;Hi&#39;;
 
   function person(name) {
 
     return {
-      introduce() {
+      sayHi() {
         console.log(`${greeting}, I&#39;m ${name}`);
       }
     }
   }
-
-  // use it in another module
-  person(&#39;Misho&#39;).introduce();
+</code></pre>
+<p>&quot;Module&quot; B:</p>
+<pre><code class="lang-javascript">  person(&#39;Misho&#39;).sayHi();
   // Hi, I&#39;m Misho
 </code></pre>
-</section><section><h5 class="inline-h">Module scope</h5><p>Each module defines it&#39;s own scope.</p>
-<pre><code class="lang-javascript">  import lib from &#39;myLib&#39;;
+</section><section><h5 class="inline-h">Module scope</h5><p>Modules create their own scopes.
+Different module systems have different
+implementation details.</p>
+<pre><code class="lang-javascript">  // imports are immutable bindings
+  import lib from &#39;myLib&#39;;
 
-  // this variable is in module scope
+  // x is in the module scope
   let x = 5;
 
+  // exports are immutable bindings
+  // the value of x cannot be changed
+  // from outside of the module
   export x;
 
   export function doStuff(arg) {
-    lib.process(arg);
+    // reassign x within the module
+    x = lib.process(arg);
+
     return &#39;done&#39;;
   }
 </code></pre>
 </section><section><h5 class="inline-h">Global scope</h5><ul>
-<li>In the browser the global scope is the window object.</li>
-<li>In node.js modules scope shadows global scope<ul>
-<li>the <code>global</code> object exposes the global scope</li>
-</ul>
+<li><p>In the browser the global scope is the window object.</p>
+<pre><code class="lang-javascript">window.anything
+</code></pre>
+</li>
+<li><p>In node.js modules scope shadows global scope</p>
+</li>
+<li><p>the <code>global</code> object exposes the global scope</p>
+<pre><code class="lang-javascript">// module scope
+const x = 50;
+
+// implied globals are also in module scope
+y = 100;
+
+// create &quot;true&quot; globals
+// by assigning to the global object
+global.z = 200;
+</code></pre>
 </li>
 </ul>
 

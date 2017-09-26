@@ -96,7 +96,7 @@ will execute the event handlers of the chain of parent nodes.</p>
   topics.on(&#39;my-message&#39;, handleMyMessage);
   topics.on(&#39;another-message&#39;, handleMyMessage);
 
-  topics.emit()
+  topics.emit(&#39;new-item&#39;, { name: &quot;Laptop&quot;, price: 873.50 });
 </code></pre>
 
 </section>

@@ -19,23 +19,11 @@
 </section><section><h5 class="inline-h">Using promises</h5><p>Handle a value once it&#39;s available</p>
 <pre><code class="lang-javascript">  waitForAnswer().then(doSomethingWithIt);
 </code></pre>
-<p>Or handle the error if something goes wrong</p>
+<p>Or handle just the error if something goes wrong</p>
 <pre><code class="lang-javascript">  waitForAnswer().catch(handleError);
 </code></pre>
-</section><section><h5 class="inline-h">Chaining</h5><p>Each call of the <code>then</code> method returns a new promise</p>
-<pre><code class="lang-javascript">  getUserProfile()
-    .then(profile =&gt; download(profile.image))
-    .then(profileImage =&gt; applyEffects(profileImage))
-    .then(imageWithEffects =&gt; saveFile(imageWithEffects))
-    .then(() =&gt; console.log(&#39;done&#39;))
-    .catch(error =&gt; console.error(&#39;something went wrong&#39;));
-</code></pre>
-</section><section><h5 class="inline-h">Fan-out</h5><p>Adding multiple handlers for the same promise</p>
-<pre><code class="lang-javascript">  const p1 = waitForAnswer();
-  const p2 = p1.then(answer =&gt; console.log(answer));
-  const p3 = p1.then(answer =&gt; answer * 2);
-  p2.then(console.log);
-  p3.then(console.log);
+<p>Or handle both with a second argument to <code>then</code></p>
+<pre><code class="lang-javascript">  waitForAnswer().then(handleAnswer, handleError);
 </code></pre>
 </section><section><h5 class="inline-h">Catch order</h5><p><code>handleError</code> will catch an exceptions coming
 from either <code>waitForAnswer</code> or <code>useAnswer</code></p>
@@ -48,6 +36,21 @@ a default value to the next <code>then function</code></p>
 <pre><code class="lang-javascript">  waitForAnswer()
     .catch(logErrorAndDefault)
     .then(useAnswerOrDefault)
+</code></pre>
+</section><section><h5 class="inline-h">Chaining</h5><p>Each call of the <code>then</code> method returns a new promise</p>
+<pre><code class="lang-javascript">  getUserProfile()
+    .then(profile =&gt; download(profile.image))
+    .then(profileImage =&gt; applyEffects(profileImage))
+    .then(imageWithEffects =&gt; saveFile(imageWithEffects))
+    .then(() =&gt; console.log(&#39;done&#39;))
+    .catch(error =&gt; console.error(&#39;something went wrong&#39;));
+</code></pre>
+</section><section><h5 class="inline-h">Fan-out</h5><p>Adding multiple handlers for the same promise</p>
+<pre><code class="lang-javascript">  const p1 = waitForAnswer();
+  const p3 = p1.then(answer =&gt; answer * 2);
+  const p2 = p1.then(answer =&gt; answer / 2);
+  p2.then(console.log);
+  p3.then(console.log);
 </code></pre>
 </section><section><h5 class="inline-h">Execution order</h5><pre><code class="lang-javascript">  setTimeout(() =&gt; console.log(&#39;A&#39;), 0);
   console.log(&#39;B&#39;);
@@ -62,6 +65,34 @@ a default value to the next <code>then function</code></p>
 
   waitOneMinute.then(doStuff);
 </code></pre>
+</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">  Promose.resolve(21)
+    .then(number =&gt; number * 2)
+    .then(number =&gt; console.log(number));
+
+  Promise.reject(&#39;Error&#39;)
+    .catch(error =&gt; {
+      console.log(error);
+    });
+</code></pre>
+</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">   Promise.all([
+     fetch(&#39;myScript.js&#39;),
+     fetch(&#39;myStyles.css&#39;)
+     fetch(&#39;myData.json&#39;),
+   ]).then(([script, styles, data]) =&gt; {
+     // all 3 resources are available here
+   });
+
+   Promise.race([
+     fetch(&#39;source1/data.json&#39;),
+     fetch(&#39;source2/data.json&#39;)
+   ]).then(data =&gt; {
+     // gets the data from the first source to succeed
+   });
+</code></pre>
+</section><section><h5 class="inline-h">Promise.try proposal</h5><pre><code class="lang-javascript">  Promise.try(() =&gt; getAnswerMightThrow())
+  .then(useAnswer)
+  .catch(handleError);
+</code></pre>
 </section><section><h5 class="inline-h">Ajax with a promise</h5><pre><code class="lang-javascript">  const ajax = ({ method = &#39;GET&#39;, url, data = null }) =&gt;
     new Promose((resolve, reject) =&gt; {
       const xhr = new XMLHttpRequest();
@@ -73,34 +104,6 @@ a default value to the next <code>then function</code></p>
     };
     xhr.open(method, url); xhr.send(data);
   });
-</code></pre>
-</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">  Promose.resolve(21)
-    .then(number =&gt; number * 2)
-    .then(number =&gt; console.log(number));
-
-  Promise.reject(&#39;Error&#39;)
-    .catch(error =&gt; {
-      console.log(error);
-    });
-</code></pre>
-</section><section><h5 class="inline-h">Promise methods</h5><pre><code class="lang-javascript">   Promise.all([
-     ajax(&#39;myScript.js&#39;),
-     ajax(&#39;myStyles.css&#39;)
-     ajax(&#39;myData.json&#39;),
-   ]).then(([script, styles, data]) =&gt; {
-     // all 3 resources are available here
-   });
-
-   Promise.race([
-     ajax(&#39;source1/data.json&#39;),
-     ajax(&#39;source2/data.json&#39;)
-   ]).then(data =&gt; {
-     // gets the data from the first source to succeed
-   });
-</code></pre>
-</section><section><h5 class="inline-h">Promise.try proposal</h5><pre><code class="lang-javascript">  Promise.try(() =&gt; getAnswerMightThrow())
-  .then(useAnswer)
-  .catch(handleError);
 </code></pre>
 
 </section>
