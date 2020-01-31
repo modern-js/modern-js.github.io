@@ -1,0 +1,2 @@
+(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[21],{898:function(n,d,a){n.exports=a.p+"static/media/numbers-and-math.a1d5d7a5.md"}}]);
+//# sourceMappingURL=21.77096ac8.chunk.js.map

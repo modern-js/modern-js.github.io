@@ -1,0 +1,2 @@
+(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[11],{888:function(n,o,s){n.exports=s.p+"static/media/async-await.df26ff1b.md"}}]);
+//# sourceMappingURL=11.d3285c69.chunk.js.map
