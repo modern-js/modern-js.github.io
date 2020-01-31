@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1729d8d5bedcf17e8c3a2666f49f8a21",
+    "revision": "72cafd5ca1e6c3f5ffdbae3ae607d786",
     "url": "/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.e95dff61.chunk.css"
   },
   {
-    "revision": "f8488dd276eca3f02221",
-    "url": "/static/css/main.b7446686.chunk.css"
+    "revision": "9946518f60d31cf2e5fa",
+    "url": "/static/css/main.329da124.chunk.css"
   },
   {
     "revision": "54a8a23054e75ef32045",
     "url": "/static/js/10.6ae68c31.chunk.js"
   },
   {
-    "revision": "020ad14b7218f3f23d90",
-    "url": "/static/js/11.3ea4acd9.chunk.js"
+    "revision": "6da181f262d721d8b805",
+    "url": "/static/js/11.ccb7a4e5.chunk.js"
   },
   {
     "revision": "06dbd77d56093213faa7",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/14.dba40237.chunk.js"
   },
   {
-    "revision": "b95ed41b5ac5289fa272",
-    "url": "/static/js/15.8b8a644e.chunk.js"
+    "revision": "942156f97be32bd98c3e",
+    "url": "/static/js/15.cbcdf457.chunk.js"
   },
   {
     "revision": "dccbe57cc8f08fc798f4",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/17.c6367e2a.chunk.js"
   },
   {
-    "revision": "ca5683ab5ca31a30af2d",
-    "url": "/static/js/18.926cbb00.chunk.js"
+    "revision": "66147e99c4337df435a3",
+    "url": "/static/js/18.45366c26.chunk.js"
   },
   {
     "revision": "e3ea2d2fc6096f48feb1",
@@ -56,8 +56,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.5b316fdd.chunk.js"
   },
   {
-    "revision": "a88118ca64b0c1e08d69",
-    "url": "/static/js/20.036cfcb4.chunk.js"
+    "revision": "e1a89b5169e7f8fc6cd8",
+    "url": "/static/js/20.db769b44.chunk.js"
   },
   {
     "revision": "43a759845ebc2330be85",
@@ -96,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/5.1408a974.chunk.js"
   },
   {
-    "revision": "e441214f05c460f35202",
-    "url": "/static/js/6.a5c5544c.chunk.js"
+    "revision": "55c6afc6c1dc9f9b86e9",
+    "url": "/static/js/6.30e6edc2.chunk.js"
   },
   {
     "revision": "93611395abc26a77f633",
@@ -112,20 +112,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/9.c9ccc060.chunk.js"
   },
   {
-    "revision": "f8488dd276eca3f02221",
-    "url": "/static/js/main.589b3a95.chunk.js"
+    "revision": "9946518f60d31cf2e5fa",
+    "url": "/static/js/main.343f40d7.chunk.js"
   },
   {
-    "revision": "f7c285a618a2088c2d9e",
-    "url": "/static/js/runtime-main.8738c5f2.js"
+    "revision": "66f1676743da1e8ce2c7",
+    "url": "/static/js/runtime-main.15029e0a.js"
   },
   {
     "revision": "78629584d7dd252277474c6209acf4a3",
     "url": "/static/media/about-the-course.78629584.md"
   },
   {
-    "revision": "bed0fb18f4f942a8ef870f80023fd78e",
-    "url": "/static/media/arrays.bed0fb18.md"
+    "revision": "c0fbc06205c96e546c672fcd4037fb02",
+    "url": "/static/media/arrays.c0fbc062.md"
   },
   {
     "revision": "df26ff1bea89cc422d65d8006a26da73",
@@ -148,8 +148,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/error.9b4ee60f.md"
   },
   {
-    "revision": "065668b606051a87bd8e3658750f3df2",
-    "url": "/static/media/functions.065668b6.md"
+    "revision": "97ff60f5331e8d4409064cabdf625dba",
+    "url": "/static/media/functions.97ff60f5.md"
   },
   {
     "revision": "ff5afaef58c806fb865ebaf02efb95b1",
@@ -168,8 +168,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/language-structure.29bc670e.md"
   },
   {
-    "revision": "b4cb231a32c111ebd7ebc0556d9b2763",
-    "url": "/static/media/loops.b4cb231a.md"
+    "revision": "fabdaf425060dd4043e0e01923df0f8c",
+    "url": "/static/media/loops.fabdaf42.md"
   },
   {
     "revision": "67975c06388835a02a524a53e9efd182",
@@ -184,16 +184,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/numbers-and-math.a1d5d7a5.md"
   },
   {
-    "revision": "35937a580c366a38d13e91fa11d09eb3",
-    "url": "/static/media/objects.35937a58.md"
+    "revision": "b418182e539c809867f5a199faef6130",
+    "url": "/static/media/objects.b418182e.md"
   },
   {
     "revision": "f653d2804c68e843fc7e2a56de990a38",
     "url": "/static/media/operators.f653d280.md"
   },
   {
-    "revision": "6c249c3671b303b9de885ebf075f6d30",
-    "url": "/static/media/prototypes.6c249c36.md"
+    "revision": "b287377b256d8000c55dc02e6f3b1292",
+    "url": "/static/media/prototypes.b287377b.md"
   },
   {
     "revision": "bcd180f7f40ef4b14fab19f775b0f7c3",
