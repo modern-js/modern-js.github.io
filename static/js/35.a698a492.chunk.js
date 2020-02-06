@@ -1,0 +1,2 @@
+(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[35],{912:function(n,d,e){n.exports=e.p+"static/media/reading-materials.bcd180f7.md"}}]);
+//# sourceMappingURL=35.a698a492.chunk.js.map
