@@ -1,2 +1,0 @@
-(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[36],{913:function(n,o,d){n.exports=d.p+"static/media/bundling.7bb041b1.md"}}]);
-//# sourceMappingURL=36.9b181865.chunk.js.map
