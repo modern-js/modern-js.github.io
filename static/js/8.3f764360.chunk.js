@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{888:function(n,e){n.exports="---\n  title: Streams\n---\n\n# Streams\n\n## Pipe\n\n## Links\n\n- [Guide to Node streams](https://community.risingstack.com/the-definitive-guide-to-object-streams-in-node-js/)\n"}}]);
+//# sourceMappingURL=8.3f764360.chunk.js.map

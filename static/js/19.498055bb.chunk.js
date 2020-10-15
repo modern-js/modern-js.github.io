@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{899:function(n,r){n.exports="# Error handling\n\n---\n## try/catch\n\n```javascript\n  try {\n    null.doSomething();\n  } catch (error) {\n    console.log(\"null can't do anything\");\n  }\n```\n\n---\n## throw\n\n```javascript\n  function sum(a, b) {\n    if (!a || !b) {\n      throw new Error('expected 2 arguments');\n    }\n  }\n\n  sum(1); // throws the error\n```\n"}}]);
+//# sourceMappingURL=19.498055bb.chunk.js.map
