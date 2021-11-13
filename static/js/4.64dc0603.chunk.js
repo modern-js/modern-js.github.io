@@ -1,0 +1,2 @@
+(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[4],{886:function(o,e,n){o.exports=n.p+"static/media/about-the-course.2a379085.md"}}]);
+//# sourceMappingURL=4.64dc0603.chunk.js.map

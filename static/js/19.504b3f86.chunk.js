@@ -1,0 +1,2 @@
+(window["webpackJsonpmodern-js"]=window["webpackJsonpmodern-js"]||[]).push([[19],{901:function(s,d,n){s.exports=n.p+"static/media/classes.428d3c2d.md"}}]);
+//# sourceMappingURL=19.504b3f86.chunk.js.map
